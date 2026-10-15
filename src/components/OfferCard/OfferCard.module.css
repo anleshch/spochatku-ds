@@ -1,0 +1,111 @@
+/*
+ * OfferCard 102:950 (page `section`). Text styles change with Size, so fonts are set
+ * from the same typography tokens the Figma text styles use.
+ */
+.card {
+  --_text-color: var(--offer-card-text-color);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--offer-card-gap);
+  padding: var(--offer-card-padding-y) var(--offer-card-padding-x);
+  border-radius: var(--offer-card-radius);
+  background: var(--offer-card-bg-color);
+  color: var(--offer-card-text-color);
+}
+
+.unavailable {
+  --_text-color: var(--offer-card-unavailable-text-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--offer-card-content-gap);
+  color: var(--_text-color);
+}
+
+.meta,
+.title,
+.description,
+.note {
+  margin: 0;
+}
+
+/* label/m-semibold */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--offer-card-meta-gap);
+  font: var(--typography-weight-semibold) var(--typography-size-20) / var(--typography-line-height-24)
+    var(--typography-family-golos-text);
+}
+
+/* heading/3 */
+.title {
+  font: var(--typography-weight-bold) var(--typography-size-32) / var(--typography-line-height-38)
+    var(--typography-family-golos-text);
+}
+
+/* body/m */
+.description {
+  font: var(--typography-weight-regular) var(--typography-size-20) / var(--typography-line-height-24)
+    var(--typography-family-golos-text);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--offer-card-actions-gap);
+}
+
+.actions > :first-child {
+  flex: 1;
+}
+
+/* body/s-medium */
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--offer-card-note-gap);
+  font: var(--typography-weight-medium) var(--typography-size-16) / var(--typography-line-height-24)
+    var(--typography-family-golos-text);
+}
+
+.sticker {
+  position: absolute;
+  bottom: var(--space-40);
+  left: var(--space-40);
+}
+
+@media (max-width: 1023.98px) {
+  .card {
+    gap: var(--offer-card-mobile-gap);
+    padding: var(--offer-card-mobile-padding-y) var(--offer-card-mobile-padding-x);
+    border-radius: var(--offer-card-mobile-radius);
+  }
+
+  .content {
+    gap: var(--offer-card-mobile-content-gap);
+  }
+
+  /* body/s-medium */
+  .meta {
+    font: var(--typography-weight-medium) var(--typography-size-16) / var(--typography-line-height-24)
+      var(--typography-family-golos-text);
+  }
+
+  /* heading/4 */
+  .title {
+    font: var(--typography-weight-bold) var(--typography-size-24) / var(--typography-line-height-29)
+      var(--typography-family-golos-text);
+  }
+
+  /* body/s */
+  .description {
+    font: var(--typography-weight-regular) var(--typography-size-16) / var(--typography-line-height-19)
+      var(--typography-family-golos-text);
+  }
+}

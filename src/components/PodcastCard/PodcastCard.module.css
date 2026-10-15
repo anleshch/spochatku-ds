@@ -1,0 +1,74 @@
+/* PodcastCard 124:508 (page `section`). Breakpoint 1024 px: below it — Size=Mobile. */
+.card {
+  display: flex;
+  gap: var(--podcast-card-gap);
+  padding: var(--podcast-card-padding-y) var(--podcast-card-padding-x);
+  border-radius: var(--podcast-card-radius);
+  background: var(--podcast-card-bg-color);
+  color: var(--podcast-card-text-color);
+}
+
+.cover {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: var(--podcast-card-cover-width);
+  height: auto;
+}
+
+.details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--podcast-card-content-gap);
+  min-width: 0;
+}
+
+.meta,
+.desktopOnly,
+.mobileOnly {
+  display: flex;
+  gap: var(--podcast-card-meta-gap);
+}
+
+.mobileOnly {
+  display: none;
+}
+
+.title,
+.description {
+  margin: 0;
+}
+
+.description {
+  white-space: pre-line;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--podcast-card-actions-gap);
+}
+
+@media (max-width: 1023.98px) {
+  .card {
+    flex-direction: column;
+    padding: var(--podcast-card-mobile-padding-y) var(--podcast-card-mobile-padding-x);
+    border-radius: var(--podcast-card-mobile-radius);
+  }
+
+  .cover {
+    width: 100%;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: flex;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
