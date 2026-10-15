@@ -1,0 +1,25 @@
+/* Sticker — Figma 62:27 (page `tag`). */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sticker-padding-y) var(--sticker-padding-x);
+  border-radius: var(--sticker-radius);
+  background: var(--sticker-bg-color);
+  color: var(--sticker-text-color);
+  text-align: center;
+}
+
+.label {
+  white-space: nowrap;
+}
+
+.large {
+  width: var(--sticker-l-width);
+  padding: var(--sticker-l-padding-y) var(--sticker-l-padding-x);
+  border-radius: var(--sticker-l-radius);
+}
+
+.large .label {
+  white-space: normal;
+}

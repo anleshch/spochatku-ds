@@ -1,2 +1,6 @@
 export { Button } from './Button/Button'
 export type { ButtonProps, ButtonAppearance } from './Button/Button'
+export { Tag } from './Tag/Tag'
+export type { TagProps, TagAppearance, TagSize } from './Tag/Tag'
+export { Sticker } from './Sticker/Sticker'
+export type { StickerProps, StickerAppearance, StickerSize } from './Sticker/Sticker'

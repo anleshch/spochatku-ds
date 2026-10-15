@@ -1,0 +1,27 @@
+/*
+ * Tag — Figma 62:22 (page `tag`).
+ * Border is an inset box-shadow: in Figma the stroke is INSIDE and not part of layout.
+ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+  padding: var(--tag-padding-y) var(--tag-padding-x);
+  border-radius: var(--tag-radius);
+  background: var(--tag-bg-color);
+  color: var(--tag-text-color);
+  box-shadow: inset 0 0 0 var(--tag-border-width) var(--tag-border-color);
+}
+
+.small {
+  padding: var(--tag-s-padding-y) var(--tag-s-padding-x);
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
