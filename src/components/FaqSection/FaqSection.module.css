@@ -1,0 +1,30 @@
+/* FaqSection 123:1601 (page `accordion`). */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--faq-section-gap);
+  padding: var(--faq-section-padding-y) var(--faq-section-padding-x);
+  border-radius: var(--faq-section-radius);
+  background: var(--faq-section-bg-color);
+  color: var(--faq-section-text-color);
+}
+
+/* heading/3 */
+.title {
+  margin: 0;
+  font: var(--typography-weight-bold) var(--typography-size-32) / var(--typography-line-height-38)
+    var(--typography-family-golos-text);
+}
+
+@media (max-width: 1023.98px) {
+  .section {
+    padding: var(--faq-section-mobile-padding-y) var(--faq-section-mobile-padding-x);
+    border-radius: var(--faq-section-mobile-radius);
+  }
+
+  /* heading/4 */
+  .title {
+    font: var(--typography-weight-bold) var(--typography-size-24) / var(--typography-line-height-29)
+      var(--typography-family-golos-text);
+  }
+}
