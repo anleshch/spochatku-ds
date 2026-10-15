@@ -1,0 +1,97 @@
+/* Footer 102:1049 (page `footer`). Variants set explicit mode inverse → data-mode="inverse". */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--footer-padding-y) 0;
+  border-radius: var(--footer-radius) var(--footer-radius) 0 0;
+  background: var(--footer-bg-color);
+  color: var(--footer-text-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--footer-gap);
+  width: 100%;
+  max-width: var(--footer-content-width);
+}
+
+.logoRow {
+  display: flex;
+}
+
+.logoLink {
+  display: inline-flex;
+  border-radius: var(--link-radius);
+  outline: none;
+}
+
+.logoLink:focus-visible {
+  box-shadow:
+    0 0 0 var(--link-focus-ring-offset) var(--link-focus-ring-offset-color),
+    0 0 0 var(--link-focus-ring-spread) var(--link-focus-ring-color);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--footer-links-gap);
+}
+
+.links,
+.policies {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--footer-links-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social {
+  align-items: flex-end;
+}
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--footer-legal-row-gap);
+  padding-top: var(--footer-gap);
+  border-top: var(--footer-divider-width) solid var(--footer-divider-color);
+  color: var(--footer-legal-text-color);
+}
+
+.policies {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--footer-legal-gap);
+}
+
+@media (max-width: 1023.98px) {
+  .footer {
+    padding: var(--footer-mobile-padding-y) var(--footer-mobile-padding-x);
+    border-radius: var(--footer-mobile-radius) var(--footer-mobile-radius) 0 0;
+  }
+
+  .logoRow {
+    justify-content: flex-end;
+  }
+
+  .nav {
+    flex-direction: column;
+  }
+
+  .social {
+    align-items: flex-start;
+  }
+
+  .legal {
+    gap: var(--footer-links-gap);
+  }
+
+  .policies {
+    flex-direction: column;
+    gap: var(--footer-links-gap);
+  }
+}
