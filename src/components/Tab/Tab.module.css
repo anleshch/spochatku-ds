@@ -1,0 +1,65 @@
+/*
+ * Tab — Figma 41:14, TabBar — Figma 41:15 (page `tab`).
+ * Same state model as Button: inset-shadow border (stroke INSIDE, not in layout) + focus ring.
+ */
+.tab {
+  --_border-width: 0px;
+  --_border-color: transparent;
+  --_ring: 0 0 transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+  padding: var(--tab-padding-y) var(--tab-padding-x);
+  border-radius: var(--tab-radius);
+  background: var(--tab-default-bg-color);
+  color: var(--tab-default-text-color);
+  box-shadow:
+    inset 0 0 0 var(--_border-width) var(--_border-color),
+    var(--_ring);
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab:hover:not([aria-disabled]) {
+  --_border-width: var(--tab-hover-border-width);
+  --_border-color: var(--tab-hover-border-color);
+  background: var(--tab-hover-bg-color);
+  color: var(--tab-hover-text-color);
+}
+
+.tab:active:not([aria-disabled]) {
+  --_border-width: var(--tab-pressed-border-width);
+  --_border-color: var(--tab-pressed-border-color);
+  background: var(--tab-pressed-bg-color);
+  color: var(--tab-pressed-text-color);
+}
+
+.tab:focus-visible {
+  --_ring:
+    0 0 0 var(--tab-focus-ring-offset) var(--tab-focus-ring-offset-color),
+    0 0 0 var(--tab-focus-ring-spread) var(--tab-focus-ring-color);
+}
+
+.tab[aria-disabled] {
+  background: var(--tab-disabled-bg-color);
+  color: var(--tab-disabled-text-color);
+  cursor: not-allowed;
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tabBar {
+  display: flex;
+  align-items: center;
+  gap: var(--tab-bar-gap);
+}

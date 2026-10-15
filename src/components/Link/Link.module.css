@@ -1,0 +1,45 @@
+/*
+ * Link — Figma 102:182 (page `link`).
+ * Hover/pressed underline is a bottom stroke in Figma (not textDecoration).
+ * Here it is an outside box-shadow, so the 1px never shifts surrounding layout.
+ */
+.link {
+  --_text-color: var(--link-text-color);
+  --_underline-color: var(--link-hover-border-color);
+  --_underline: 0 0 transparent;
+  --_ring: 0 0 transparent;
+
+  display: inline-block;
+  color: var(--_text-color);
+  text-decoration: none;
+  box-shadow: var(--_underline), var(--_ring);
+  outline: none;
+  cursor: pointer;
+}
+
+.subtle {
+  --_text-color: var(--link-subtle-text-color);
+  --_underline-color: var(--link-subtle-hover-border-color);
+}
+
+.link:hover:not([aria-disabled]) {
+  --_underline: 0 var(--link-hover-border-width) 0 var(--_underline-color);
+}
+
+.link:active:not([aria-disabled]) {
+  --_text-color: var(--link-pressed-text-color);
+  --_underline: 0 var(--link-hover-border-width) 0 var(--link-pressed-border-color);
+}
+
+.link:focus-visible {
+  --_ring:
+    0 0 0 var(--link-focus-ring-offset) var(--link-focus-ring-offset-color),
+    0 0 0 var(--link-focus-ring-spread) var(--link-focus-ring-color);
+  border-radius: var(--link-radius);
+  background: var(--link-focus-bg-color);
+}
+
+.link[aria-disabled] {
+  --_text-color: var(--link-disabled-text-color);
+  cursor: not-allowed;
+}
