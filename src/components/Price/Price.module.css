@@ -1,0 +1,14 @@
+/* Price 102:79 (page `price`), State=Default only. */
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--price-gap);
+  padding-top: var(--price-padding-y);
+  padding-bottom: var(--price-padding-y);
+  color: var(--price-text-color);
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}

@@ -1,0 +1,22 @@
+/* Logo 79:109, LogoBadge 79:115 (page `logo`). */
+.logo {
+  display: inline-block;
+  flex-shrink: 0;
+  aspect-ratio: 88 / 36;
+  background: var(--logo-icon-color);
+  mask: var(--logo-mask) center / contain no-repeat;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  /* logo-badge/padding-x is defined at the 1080 px design size */
+  padding: 0 calc(var(--logo-badge-padding-x) * var(--_scale, 1));
+  background: var(--logo-badge-bg-color);
+}
+
+.circle {
+  border-radius: var(--logo-badge-radius);
+}
