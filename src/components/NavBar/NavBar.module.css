@@ -1,0 +1,69 @@
+/*
+ * NavBar 123:1806 (page `nav-bar`). Strokes are part of layout in Figma → real borders.
+ * Breakpoint 1024 px: below it — Size=Mobile.
+ */
+.navBar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--nav-bar-gap);
+}
+
+.sticker {
+  align-self: stretch;
+}
+
+.bar {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--nav-bar-actions-gap);
+  min-width: 0;
+  padding: var(--nav-bar-padding-y) var(--nav-bar-padding-x);
+  border: var(--nav-bar-border-width) solid var(--nav-bar-border-color);
+  border-radius: var(--nav-bar-radius);
+  background: var(--nav-bar-bg-color);
+  backdrop-filter: blur(var(--nav-bar-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--nav-bar-backdrop-blur));
+}
+
+.price {
+  flex: 1;
+  min-width: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--nav-bar-mobile-actions-gap);
+}
+
+.iconAction {
+  display: none;
+}
+
+@media (max-width: 1023.98px) {
+  .navBar {
+    gap: var(--nav-bar-mobile-gap);
+  }
+
+  .sticker {
+    display: none;
+  }
+
+  .bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--nav-bar-mobile-gap);
+    padding: var(--nav-bar-mobile-padding-y) var(--nav-bar-mobile-padding-x);
+    border-radius: var(--nav-bar-mobile-radius) var(--nav-bar-mobile-radius) var(--nav-bar-mobile-bottom-radius)
+      var(--nav-bar-mobile-bottom-radius);
+  }
+
+  .actions > :first-child {
+    flex: 1;
+  }
+
+  .iconAction {
+    display: inline-flex;
+  }
+}
