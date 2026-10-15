@@ -1,0 +1,92 @@
+/*
+ * Button — Figma 56:111 (page `button`).
+ * Borders are inset box-shadows: in Figma the stroke is INSIDE and not part of layout,
+ * so hover/pressed borders must not change the button size.
+ * Focus ring = offset shadow (page colour) on top of the ring shadow, as in Figma.
+ */
+.button {
+  --_border-width: var(--button-border-width);
+  --_border-color: var(--button-border-color);
+  --_ring: 0 0 transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border: 0;
+  border-radius: var(--button-radius);
+  background: var(--button-bg-color);
+  color: var(--button-text-color);
+  box-shadow:
+    inset 0 0 0 var(--_border-width) var(--_border-color),
+    var(--_ring);
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover:not(:disabled) {
+  --_border-width: var(--button-hover-border-width);
+  --_border-color: var(--button-hover-border-color);
+  background: var(--button-hover-bg-color);
+}
+
+.button:active:not(:disabled) {
+  --_border-width: var(--button-pressed-border-width);
+  --_border-color: var(--button-pressed-border-color);
+  background: var(--button-pressed-bg-color);
+}
+
+.button:focus-visible {
+  --_ring:
+    0 0 0 var(--button-focus-ring-offset) var(--button-focus-ring-offset-color),
+    0 0 0 var(--button-focus-ring-spread) var(--button-focus-ring-color);
+}
+
+.button:disabled {
+  --_border-width: 0px;
+  background: var(--button-disabled-bg-color);
+  color: var(--button-disabled-text-color);
+  cursor: not-allowed;
+}
+
+.iconOnly {
+  padding: var(--button-padding-y);
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon,
+.iconSlot {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--button-icon-color);
+}
+
+.button:disabled .icon,
+.button:disabled .iconSlot {
+  color: var(--button-disabled-icon-color);
+}
+
+.iconSlot {
+  width: 30px;
+  height: 30px;
+}
+
+.icon :where(svg),
+.iconSlot :where(svg) {
+  width: 24px;
+  height: 24px;
+}
