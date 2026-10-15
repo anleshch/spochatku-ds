@@ -1,0 +1,53 @@
+/* StepNumber 65:21, StepItem 65:23, Steps 67:141, StepsCta 67:166 (page `list`). */
+.number {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--step-number-radius);
+  box-shadow: inset 0 0 0 var(--step-number-border-width) var(--step-number-border-color);
+  color: var(--step-number-text-color);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--steps-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--step-item-gap);
+  color: var(--step-item-text-color);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--step-item-text-gap);
+  min-width: 0;
+}
+
+.stepsCta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--steps-cta-gap);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--steps-cta-actions-gap);
+}
+
+/* Main action fills the row, as in Figma. */
+.actions > :first-child {
+  flex: 1;
+}

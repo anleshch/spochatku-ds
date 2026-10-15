@@ -1,0 +1,38 @@
+/* List — Figma 67:116, ListItem — Figma 65:29 (page `list`). */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--list-item-gap);
+  color: var(--list-item-text-color);
+}
+
+/* Marker box is one line tall, so the 12 px bullet centres on the first line (as in Figma). */
+.marker {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 1lh;
+}
+
+.marker::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--list-item-icon-color);
+}
+
+.label {
+  min-width: 0;
+}
