@@ -1,0 +1,13 @@
+/* Eyes 102:892 (page `eyes`). */
+.eyes {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.sclera {
+  fill: var(--eyes-sclera-color);
+}
+
+.pupil {
+  fill: var(--eyes-pupil-color);
+}

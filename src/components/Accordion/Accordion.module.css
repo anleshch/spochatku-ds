@@ -1,0 +1,99 @@
+/*
+ * AccordionItem 80:62, Accordion 80:71 (page `accordion`).
+ * Bottom border is INSIDE and not part of layout → inset shadow; hover/pressed thicken it to 6
+ * without moving content. States live on the trigger button and are reflected on the item via :has().
+ */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--accordion-gap);
+}
+
+.item {
+  --_border-width: var(--accordion-item-border-width);
+  --_border-color: var(--accordion-item-border-color);
+  --_text-color: var(--accordion-item-text-color);
+  --_icon-color: var(--accordion-item-icon-color);
+  --_ring: 0 0 transparent;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--accordion-item-text-gap);
+  padding: var(--accordion-item-padding-y) var(--accordion-item-padding-x);
+  background: var(--accordion-item-bg-color);
+  color: var(--_text-color);
+  box-shadow:
+    inset 0 calc(-1 * var(--_border-width)) 0 var(--_border-color),
+    var(--_ring);
+}
+
+.item:has(.trigger:hover:not(:disabled)) {
+  --_border-width: var(--accordion-item-hover-border-width);
+}
+
+.item:has(.trigger:active:not(:disabled)) {
+  --_border-width: var(--accordion-item-pressed-border-width);
+  background: var(--accordion-item-pressed-bg-color);
+}
+
+.item:has(.trigger:focus-visible) {
+  --_ring:
+    0 0 0 var(--accordion-item-focus-ring-offset) var(--accordion-item-focus-ring-offset-color),
+    0 0 0 var(--accordion-item-focus-ring-spread) var(--accordion-item-focus-ring-color);
+  background: var(--accordion-item-focus-bg-color);
+}
+
+.item:has(.trigger:disabled) {
+  --_border-color: var(--accordion-item-disabled-border-color);
+  --_text-color: var(--accordion-item-disabled-text-color);
+  --_icon-color: var(--accordion-item-disabled-icon-color);
+}
+
+.heading {
+  margin: 0;
+  font: inherit;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--accordion-item-gap);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.trigger:disabled {
+  cursor: not-allowed;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--_icon-color);
+}
+
+/* Figma swaps chevron-down → chevron-up; same glyph rotated. */
+.icon[data-expanded='true'] {
+  rotate: 180deg;
+}
+
+.content {
+  margin: 0;
+}
+
+.content[hidden] {
+  display: none;
+}
