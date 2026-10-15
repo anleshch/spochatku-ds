@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode, Ref } from 'react'
 import styles from './Button.module.css'
 
 /** Figma `Appearance` → mode колекції Components (data-mode). */
@@ -6,6 +6,7 @@ export type ButtonAppearance = 'default' | 'inverse' | 'outlined'
 
 type BaseProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
   appearance?: ButtonAppearance
+  ref?: Ref<HTMLButtonElement>
 }
 
 /** Figma `Variant=Label`: текст (`label`) + необов'язкові іконки зліва/справа. */

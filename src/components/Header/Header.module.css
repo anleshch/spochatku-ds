@@ -1,0 +1,88 @@
+/*
+ * Header 122:1494, MobileMenu 122:1495 (page `header`).
+ * Breakpoint 1024 px (decided with the designer): below it — Size=Mobile.
+ */
+.header {
+  position: relative;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--header-gap);
+  padding: var(--header-padding-y) var(--header-padding-right) var(--header-padding-y) var(--header-padding-left);
+  border-radius: var(--header-radius);
+  background: var(--header-bg-color);
+  /* Stroke is part of layout in Figma (64 = 1 + 4 + 54 + 4 + 1) → real border. */
+  border: var(--header-border-width) solid var(--header-border-color);
+  backdrop-filter: blur(var(--header-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--header-backdrop-blur));
+}
+
+.expanded {
+  background: var(--header-expanded-bg-color);
+}
+
+.logoLink {
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: var(--link-radius);
+  outline: none;
+}
+
+.logoLink:focus-visible {
+  box-shadow:
+    0 0 0 var(--link-focus-ring-offset) var(--link-focus-ring-offset-color),
+    0 0 0 var(--link-focus-ring-spread) var(--link-focus-ring-color);
+}
+
+.mobileOnly {
+  display: none;
+}
+
+/* MobileMenu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mobile-menu-gap);
+  padding: var(--mobile-menu-padding-y) var(--mobile-menu-padding-x);
+  border-radius: var(--mobile-menu-radius);
+  background: var(--mobile-menu-bg-color);
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mobile-menu-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menuItem {
+  width: 100%;
+}
+
+/* The open menu sits over the header so its inner bar lines up with the closed one. */
+.overlay {
+  position: absolute;
+  top: calc(-1 * var(--mobile-menu-padding-y));
+  right: calc(-1 * var(--mobile-menu-padding-x));
+  left: calc(-1 * var(--mobile-menu-padding-x));
+  z-index: 10;
+}
+
+@media (max-width: 1023.98px) {
+  .bar {
+    padding-left: var(--header-mobile-padding-left);
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: inline-flex;
+  }
+}
