@@ -1,7 +1,8 @@
-/* Price 102:79 (page `price`), State=Default only. */
+/* Price 102:79 (page `price`): State = Default | Early bird | Unavailable. */
 .price {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--price-gap);
   padding-top: var(--price-padding-y);
   padding-bottom: var(--price-padding-y);
@@ -10,5 +11,41 @@
 }
 
 .right {
+  align-items: flex-end;
   text-align: right;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--price-gap);
+}
+
+.right .row {
+  justify-content: flex-end;
+}
+
+/* In Figma this is a bound `strike` rectangle (price/strike-width); in CSS a real line-through. */
+.old {
+  text-decoration: line-through;
+  text-decoration-thickness: var(--price-strike-width);
+}
+
+.discounted {
+  color: var(--price-discount-text-color);
+}
+
+.note {
+  align-items: center;
+  justify-content: center;
+  gap: var(--price-note-gap);
+}
+
+.noteIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--price-note-icon-color);
 }

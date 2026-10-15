@@ -75,6 +75,7 @@
   --color-neutral-0-a10: #ffffff1a;
   --radius-0: 0px;
   --size-320: 320px;
+  --color-red-600: #c8281e;
 }
 
 /* Semantic — pink-bg (default) */
@@ -107,6 +108,7 @@
   --color-text-inverse-subtle: var(--color-neutral-0-a70);
   --color-border-inverse-subtle: var(--color-neutral-0-a10);
   --color-bg-subtle: var(--color-beige-100);
+  --color-text-accent: var(--color-red-600);
 }
 
 /* Semantic — beige-bg */
@@ -139,6 +141,7 @@
   --color-text-inverse-subtle: var(--color-neutral-0-a70);
   --color-border-inverse-subtle: var(--color-neutral-0-a10);
   --color-bg-subtle: var(--color-beige-100);
+  --color-text-accent: var(--color-red-600);
 }
 
 /* Components — default */
@@ -365,6 +368,10 @@
   --offer-card-mobile-padding-y: var(--space-40);
   --offer-card-mobile-gap: var(--space-12);
   --offer-card-mobile-content-gap: var(--space-16);
+  --price-discount-text-color: var(--color-text-accent);
+  --price-note-icon-color: var(--color-text-accent);
+  --price-note-gap: var(--space-8);
+  --price-strike-width: var(--border-width-2);
 }
 
 /* Components — inverse */
