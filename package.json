@@ -1,8 +1,28 @@
 {
-  "name": "ds",
+  "name": "@spochatku/ds",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Spochatku UX design system: React components and design tokens",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anleshch/spochatku-ds.git"
+  },
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.js",
+  "types": "./dist/types/components/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/components/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,12 +30,15 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "tokens": "node scripts/build-tokens.mjs"
+    "tokens": "node scripts/build-tokens.mjs",
+    "build:lib": "vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "lucide-react": "^1.57.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "lucide-react": "^1.57.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "latest",
@@ -32,6 +55,8 @@
     "@vitest/coverage-v8": "latest",
     "oxlint": "^1.81.0",
     "playwright": "latest",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "storybook": "^10.6.2",
     "storybook-addon-pseudo-states": "^10.6.2",
     "typescript": "~6.0.2",
