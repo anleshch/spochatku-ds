@@ -27,6 +27,18 @@
   justify-content: flex-end;
 }
 
+/* responsive = Align=Right on desktop, Align=Center below 1024 px */
+@media (min-width: 1024px) {
+  .responsive {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .responsive .row {
+    justify-content: flex-end;
+  }
+}
+
 /* In Figma this is a bound `strike` rectangle (price/strike-width); in CSS a real line-through. */
 .old {
   text-decoration: line-through;

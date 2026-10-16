@@ -19,6 +19,18 @@
   padding: var(--tag-s-padding-y) var(--tag-s-padding-x);
 }
 
+/* responsive = Size=M on desktop, Size=S below 1024 px (body/s-medium) */
+@media (max-width: 1023.98px) {
+  .responsive {
+    padding: var(--tag-s-padding-y) var(--tag-s-padding-x);
+  }
+
+  .responsive .label {
+    font: var(--typography-weight-medium) var(--typography-size-16) / var(--typography-line-height-24)
+      var(--typography-family-golos-text);
+  }
+}
+
 .label {
   min-width: 0;
   overflow: hidden;

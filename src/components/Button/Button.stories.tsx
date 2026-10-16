@@ -40,6 +40,11 @@ export const IconOnly: Story = {
   args: { children: undefined, icon: <ArrowRight />, 'aria-label': 'Далі' } as never,
 }
 
+export const AsLink: Story = {
+  name: 'As link (href)',
+  args: { children: 'Більше про Анну', appearance: 'inverse', href: 'https://annalishchynska.com/', target: '_blank' },
+}
+
 export const LongLabelTruncates: Story = {
   name: 'Long label (truncates)',
   args: { children: 'Дуже довгий текст кнопки, який не влазить у ширину контейнера' },

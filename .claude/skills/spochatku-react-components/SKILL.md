@@ -62,7 +62,8 @@ description: Перенесення компонентів ДС Spochatku UX з 
 - Довгий текст: поведінка як у Figma (truncation `text-overflow: ellipsis` або перенос), `min-width: 0` у flex.
 - Іконки — `currentColor`, розмір задається через `:where(svg)`; колір — `{component}-icon-color`.
 
-**Адаптив** — один компонент на обидва розміри. Figma `Size=Desktop` — за замовчуванням, `Size=Mobile` — `@media (max-width: 1023.98px)` (брейкпойнт 1024). Ніяких `size`-пропсів для Desktop/Mobile.
+**Адаптив** — один компонент на обидва розміри. Figma `Size=Desktop` — за замовчуванням, `Size=Mobile` — `@media (max-width: 1023.98px)` (брейкпойнт 1024). Ніяких `size`-пропсів для Desktop/Mobile в організмах.
+- Якщо в мобільному варіанті організму атом інший (Tag M → S, Price Right → Center), атом має значення `responsive` (`<Tag size="responsive">`, `<Price align="responsive">`), яке перемикається тим самим media query.
 
 ## Stories
 

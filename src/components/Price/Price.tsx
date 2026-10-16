@@ -3,7 +3,7 @@ import { Asterisk } from 'lucide-react'
 import { Eyes } from '../Eyes/Eyes'
 import styles from './Price.module.css'
 
-export type PriceAlign = 'center' | 'right'
+export type PriceAlign = 'center' | 'right' | 'responsive'
 /** Figma `State`: Default | Early bird | Unavailable. */
 export type PriceState = 'default' | 'early-bird' | 'unavailable'
 
@@ -12,7 +12,7 @@ export type PriceProps = HTMLAttributes<HTMLDivElement> & {
   price?: ReactNode
   /** Друга ціна під основною (зазвичай у гривнях). Не передали — рядка немає. */
   secondaryPrice?: ReactNode
-  /** Center — у NavBar; Right — в OfferCard. */
+  /** Center — у NavBar; Right — в OfferCard; responsive — Right ≥ 1024 px, Center нижче (CourseHero). */
   align?: PriceAlign
   state?: PriceState
   /** early-bird: ціна зі знижкою, наприклад «510$». */
@@ -32,7 +32,7 @@ export function Price({
   className,
   ...rest
 }: PriceProps) {
-  const classes = [styles.price, align === 'right' && styles.right, className].filter(Boolean).join(' ')
+  const classes = [styles.price, align === 'right' && styles.right, align === 'responsive' && styles.responsive, className].filter(Boolean).join(' ')
 
   if (state === 'unavailable') {
     return (
