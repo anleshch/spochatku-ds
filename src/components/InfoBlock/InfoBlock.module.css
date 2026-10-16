@@ -17,3 +17,11 @@
   grid-auto-flow: column;
   gap: var(--info-blocks-gap);
 }
+
+/* Mobile: блоки стають стовпчиком (у Figma — фрейм info-blocks на сторінках, gap info-blocks/mob/gap). */
+@media (max-width: 1023.98px) {
+  .row {
+    grid-auto-flow: row;
+    gap: var(--info-blocks-mob-gap);
+  }
+}
