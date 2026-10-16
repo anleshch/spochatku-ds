@@ -112,6 +112,14 @@
   --color-border-inverse-subtle: var(--color-neutral-0-a10);
   --color-bg-subtle: var(--color-beige-100);
   --color-text-accent: var(--color-red-600);
+  --layout-page-padding-x: var(--space-80);
+  --layout-mobile-page-padding-x: var(--space-12);
+  --layout-section-gap: var(--space-80);
+  --layout-mobile-section-gap: var(--space-80);
+  --layout-block-gap: var(--space-40);
+  --layout-mobile-block-gap: var(--space-24);
+  --layout-card-gap: var(--space-8);
+  --layout-mobile-card-gap: var(--space-0);
 }
 
 /* Semantic — beige-bg */
@@ -145,6 +153,14 @@
   --color-border-inverse-subtle: var(--color-neutral-0-a10);
   --color-bg-subtle: var(--color-beige-100);
   --color-text-accent: var(--color-red-600);
+  --layout-page-padding-x: var(--space-80);
+  --layout-mobile-page-padding-x: var(--space-12);
+  --layout-section-gap: var(--space-80);
+  --layout-mobile-section-gap: var(--space-80);
+  --layout-block-gap: var(--space-40);
+  --layout-mobile-block-gap: var(--space-24);
+  --layout-card-gap: var(--space-8);
+  --layout-mobile-card-gap: var(--space-0);
 }
 
 /* Components — default */
@@ -403,6 +419,10 @@
   --mentor-card-mobile-padding-x: var(--space-24);
   --mentor-card-mobile-padding-y: var(--space-24);
   --course-hero-actions-gap: var(--space-0);
+  --program-card-mobile-radius: var(--radius-40);
+  --program-card-mobile-padding-x: var(--space-24);
+  --program-card-mobile-gap: var(--space-16);
+  --program-card-mobile-padding-y: var(--space-24);
 }
 
 /* Components — inverse */

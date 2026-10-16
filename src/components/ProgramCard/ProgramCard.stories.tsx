@@ -32,3 +32,5 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const WithoutTag: Story = { name: 'Without tag', args: { tag: undefined } }
+
+export const Mobile: Story = { globals: { viewport: { value: 'mobile2' } } }

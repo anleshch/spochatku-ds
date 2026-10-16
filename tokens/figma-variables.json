@@ -209,6 +209,38 @@
     "color/text/accent": {
       "pink-bg": "{color/red/600}",
       "beige-bg": "{color/red/600}"
+    },
+    "layout/page-padding-x": {
+      "pink-bg": "{space/80}",
+      "beige-bg": "{space/80}"
+    },
+    "layout/mobile/page-padding-x": {
+      "pink-bg": "{space/12}",
+      "beige-bg": "{space/12}"
+    },
+    "layout/section-gap": {
+      "pink-bg": "{space/80}",
+      "beige-bg": "{space/80}"
+    },
+    "layout/mobile/section-gap": {
+      "pink-bg": "{space/80}",
+      "beige-bg": "{space/80}"
+    },
+    "layout/block-gap": {
+      "pink-bg": "{space/40}",
+      "beige-bg": "{space/40}"
+    },
+    "layout/mobile/block-gap": {
+      "pink-bg": "{space/24}",
+      "beige-bg": "{space/24}"
+    },
+    "layout/card-gap": {
+      "pink-bg": "{space/8}",
+      "beige-bg": "{space/8}"
+    },
+    "layout/mobile/card-gap": {
+      "pink-bg": "{space/0}",
+      "beige-bg": "{space/0}"
     }
   },
   "Components": {
@@ -669,7 +701,11 @@
     "mentor-card/mobile/radius": "radius/40",
     "mentor-card/mobile/padding-x": "space/24",
     "mentor-card/mobile/padding-y": "space/24",
-    "course-hero/actions-gap": "space/0"
+    "course-hero/actions-gap": "space/0",
+    "program-card/mobile/radius": "radius/40",
+    "program-card/mobile/padding-x": "space/24",
+    "program-card/mobile/gap": "space/16",
+    "program-card/mobile/padding-y": "space/24"
   },
   "textStyles": {
     "heading/1": {

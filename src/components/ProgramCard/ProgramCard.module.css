@@ -19,3 +19,12 @@
 .title {
   margin: 0;
 }
+
+/* Size=Mobile: header gap stays program-card/gap, as in Figma. */
+@media (max-width: 1023.98px) {
+  .card {
+    gap: var(--program-card-mobile-gap);
+    padding: var(--program-card-mobile-padding-y) var(--program-card-mobile-padding-x);
+    border-radius: var(--program-card-mobile-radius);
+  }
+}

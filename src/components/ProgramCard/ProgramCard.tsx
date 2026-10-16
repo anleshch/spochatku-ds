@@ -11,7 +11,10 @@ export type ProgramCardProps = Omit<HTMLAttributes<HTMLElement>, 'title'> & {
   children: ReactNode
 }
 
-/** Картка блоку програми курсу (тиждень / модуль): Tag + заголовок + List. */
+/**
+ * Картка блоку програми курсу (тиждень / модуль): Tag + заголовок + List.
+ * ≥ 1024 px — Size=Desktop; < 1024 px — Size=Mobile (менші відступи й радіус).
+ */
 export function ProgramCard({ title, tag, children, className, ...rest }: ProgramCardProps) {
   return (
     <article className={[styles.card, className].filter(Boolean).join(' ')} {...rest}>
