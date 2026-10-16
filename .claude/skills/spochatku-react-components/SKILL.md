@@ -23,6 +23,7 @@ description: Перенесення компонентів ДС Spochatku UX з 
 - Vite + React 19 + TypeScript, Storybook 10 (addons: a11y, docs, vitest, `storybook-addon-pseudo-states`), іконки `lucide-react`.
 - Компонент: `src/components/{Name}/{Name}.tsx`, `{Name}.module.css`, `{Name}.stories.tsx`. Пов'язані дрібні компоненти живуть разом (`Tab` + `TabBar` у `Tab/`).
 - Кожен компонент і його типи експортуються з `src/components/index.ts`.
+- Пакет `@spochatku/ds`: вхід `src/lib.ts` (index.css + усі експорти), збірка `vite.lib.config.ts` → `dist/index.js`, `dist/styles.css`, типи з `tsconfig.lib.json`. React — peer dependency, `lucide-react` — dependency.
 - Хелпери для stories: `src/storybook/Backgrounds.tsx` (pink / beige / inverse панелі), `src/storybook/placeholder-photo.svg`.
 - Шрифти Golos Text і Oi — Google Fonts (`index.html`, `.storybook/preview-head.html`).
 
@@ -83,7 +84,8 @@ description: Перенесення компонентів ДС Spochatku UX з 
    - Кліки Claude in Chrome не доходять до iframe Storybook — взаємодії перевіряй через `element.click()` у javascript_tool. Після нових файлів stories вкладку треба перезавантажити.
    - a11y-панель без порушень.
 5. **Коміт і push.** Один перевірений компонент — один коміт (`Add {Name}` / `Fix {Name} …`), одразу `git push`. Повідомлення закінчується рядком `Co-Authored-By` з поточної інструкції щодо атрибуції. Після push Storybook на GitHub Pages оновиться сам (~1 хв); перевір `gh run list --limit 1`.
-6. **Звіт Анні** — коротко, простою мовою: що зроблено, посилання на story, що лишилося відкритим (зокрема розбіжності з Figma).
+6. **Реліз для сайту** (коли зміни потрібні на сайті, а не після кожного компонента): підняти `version` у `package.json` (semver: новий компонент — minor, виправлення — patch, ламаюча зміна пропсів — major), коміт, `git tag vX.Y.Z && git push --tags`. Workflow `release.yml` збере `npm run build:lib` і створить GitHub Release з архівом `spochatku-ds-X.Y.Z.tgz`; сайт оновлюється, змінивши URL архіву. Новий компонент має бути в `src/components/index.ts`, інакше він не потрапить у пакет.
+7. **Звіт Анні** — коротко, простою мовою: що зроблено, посилання на story, що лишилося відкритим (зокрема розбіжності з Figma).
 
 ## Заборони
 
