@@ -14,12 +14,19 @@
   white-space: nowrap;
 }
 
+.medium {
+  width: var(--sticker-m-width);
+  padding: var(--sticker-m-padding-y) var(--sticker-m-padding-x);
+  border-radius: var(--sticker-m-radius);
+}
+
 .large {
   width: var(--sticker-l-width);
   padding: var(--sticker-l-padding-y) var(--sticker-l-padding-x);
   border-radius: var(--sticker-l-radius);
 }
 
+.medium .label,
 .large .label {
   white-space: normal;
 }

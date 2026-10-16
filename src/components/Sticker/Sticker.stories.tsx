@@ -25,6 +25,8 @@ export const Default: Story = {
 
 export const Inverse: Story = {}
 
+export const Medium: Story = { args: { size: 'm', children: 'когорта — тільки 7 місць' } }
+
 export const Large: Story = { args: { size: 'l', children: 'старт нової когорти вже у листопаді' } }
 
 export const Rotated: Story = { args: { rotate: -6 } }
@@ -35,6 +37,8 @@ export const AllVariants: Story = {
     <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
       <Sticker>sticker</Sticker>
       <Sticker appearance="inverse">sticker</Sticker>
+      <Sticker size="m">sticker</Sticker>
+      <Sticker size="m" appearance="inverse">sticker</Sticker>
       <Sticker size="l">sticker</Sticker>
       <Sticker size="l" appearance="inverse">sticker</Sticker>
     </div>
