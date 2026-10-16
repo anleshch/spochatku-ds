@@ -76,6 +76,9 @@
   --radius-0: 0px;
   --size-320: 320px;
   --color-red-600: #c8281e;
+  --space-96: 96px;
+  --typography-size-28: 28px;
+  --typography-line-height-34: 34px;
 }
 
 /* Semantic — pink-bg (default) */
@@ -372,6 +375,34 @@
   --price-note-icon-color: var(--color-text-accent);
   --price-note-gap: var(--space-8);
   --price-strike-width: var(--border-width-2);
+  --course-hero-bg-color: var(--color-bg-surface);
+  --course-hero-text-color: var(--color-text-primary);
+  --course-hero-radius: var(--radius-160);
+  --course-hero-padding-x: var(--space-80);
+  --course-hero-padding-top: var(--space-140);
+  --course-hero-padding-bottom: var(--space-80);
+  --course-hero-gap: var(--space-24);
+  --course-hero-tags-gap: var(--space-4);
+  --course-hero-description-gap: var(--space-12);
+  --course-hero-content-gap: var(--space-120);
+  --course-hero-price-gap: var(--space-24);
+  --course-hero-price-width: var(--size-320);
+  --course-hero-mobile-radius: var(--radius-40);
+  --course-hero-mobile-padding-x: var(--space-12);
+  --course-hero-mobile-padding-top: var(--space-96);
+  --course-hero-mobile-padding-bottom: var(--space-12);
+  --course-hero-mobile-content-gap: var(--space-40);
+  --mentor-card-bg-color: var(--color-bg-surface);
+  --mentor-card-text-color: var(--color-text-primary);
+  --mentor-card-radius: var(--radius-80);
+  --mentor-card-padding-x: var(--space-48);
+  --mentor-card-padding-y: var(--space-48);
+  --mentor-card-gap: var(--space-24);
+  --mentor-card-content-gap: var(--space-12);
+  --mentor-card-mobile-radius: var(--radius-40);
+  --mentor-card-mobile-padding-x: var(--space-24);
+  --mentor-card-mobile-padding-y: var(--space-24);
+  --course-hero-actions-gap: var(--space-0);
 }
 
 /* Components — inverse */
@@ -518,4 +549,11 @@
   font-weight: var(--typography-weight-medium);
   font-size: var(--typography-size-20);
   line-height: var(--typography-line-height-30);
+}
+
+.text-heading-1-mobile {
+  font-family: var(--typography-family-oi);
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-28);
+  line-height: var(--typography-line-height-34);
 }

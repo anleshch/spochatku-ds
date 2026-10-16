@@ -1,0 +1,49 @@
+/* MentorCard 158:612 (page `section`). */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mentor-card-gap);
+  padding: var(--mentor-card-padding-y) var(--mentor-card-padding-x);
+  border-radius: var(--mentor-card-radius);
+  background: var(--mentor-card-bg-color);
+  color: var(--mentor-card-text-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mentor-card-content-gap);
+}
+
+/* Figma: photo left, tag right (space-between). */
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.photo {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.name,
+.role {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.action {
+  display: flex;
+}
+
+@media (max-width: 1023.98px) {
+  .card {
+    padding: var(--mentor-card-mobile-padding-y) var(--mentor-card-mobile-padding-x);
+    border-radius: var(--mentor-card-mobile-radius);
+  }
+
+  .action > * {
+    flex: 1;
+  }
+}

@@ -1,0 +1,110 @@
+/*
+ * CourseHero 159:651 (page `section`). Text styles change with Size, so fonts are set
+ * from the same typography tokens the Figma text styles use.
+ * Only the bottom corners are rounded: the block starts at the top edge of the page.
+ */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--course-hero-gap);
+  padding: var(--course-hero-padding-top) var(--course-hero-padding-x) var(--course-hero-padding-bottom);
+  border-radius: 0 0 var(--course-hero-radius) var(--course-hero-radius);
+  background: var(--course-hero-bg-color);
+  color: var(--course-hero-text-color);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--course-hero-tags-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* heading/1 */
+.title {
+  margin: 0;
+  font: var(--typography-weight-regular) var(--typography-size-64) / var(--typography-line-height-77)
+    var(--typography-family-oi);
+  overflow-wrap: anywhere;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--course-hero-content-gap);
+}
+
+.info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--course-hero-description-gap);
+  min-width: 0;
+}
+
+/* body/m */
+.description {
+  margin: 0;
+  font: var(--typography-weight-regular) var(--typography-size-20) / var(--typography-line-height-24)
+    var(--typography-family-golos-text);
+}
+
+.pricing {
+  display: flex;
+  flex: 0 0 var(--course-hero-price-width);
+  flex-direction: column;
+  gap: var(--course-hero-price-gap);
+  min-width: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--course-hero-actions-gap);
+}
+
+.actions > :first-child:not(:last-child) {
+  flex: 1;
+}
+
+@media (max-width: 1023.98px) {
+  .hero {
+    padding: var(--course-hero-mobile-padding-top) var(--course-hero-mobile-padding-x)
+      var(--course-hero-mobile-padding-bottom);
+    border-radius: 0 0 var(--course-hero-mobile-radius) var(--course-hero-mobile-radius);
+  }
+
+  /* heading/1-mobile */
+  .title {
+    font: var(--typography-weight-regular) var(--typography-size-28) / var(--typography-line-height-34)
+      var(--typography-family-oi);
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--course-hero-mobile-content-gap);
+  }
+
+  /* body/s */
+  .description {
+    font: var(--typography-weight-regular) var(--typography-size-16) / var(--typography-line-height-19)
+      var(--typography-family-golos-text);
+  }
+
+  .pricing {
+    flex-basis: auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .actions > :only-child {
+    flex: 1;
+  }
+}

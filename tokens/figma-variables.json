@@ -88,7 +88,10 @@
     "color/neutral/0-a10": "#ffffff1a",
     "radius/0": 0,
     "size/320": 320,
-    "color/red/600": "#c8281e"
+    "color/red/600": "#c8281e",
+    "space/96": 96,
+    "typography/size/28": 28,
+    "typography/line-height/34": 34
   },
   "Semantic": {
     "color/bg/page": {
@@ -638,7 +641,35 @@
     "price/discount/text-color": "color/text/accent",
     "price/note/icon-color": "color/text/accent",
     "price/note-gap": "space/8",
-    "price/strike-width": "border-width/2"
+    "price/strike-width": "border-width/2",
+    "course-hero/bg-color": "color/bg/surface",
+    "course-hero/text-color": "color/text/primary",
+    "course-hero/radius": "radius/160",
+    "course-hero/padding-x": "space/80",
+    "course-hero/padding-top": "space/140",
+    "course-hero/padding-bottom": "space/80",
+    "course-hero/gap": "space/24",
+    "course-hero/tags-gap": "space/4",
+    "course-hero/description-gap": "space/12",
+    "course-hero/content-gap": "space/120",
+    "course-hero/price-gap": "space/24",
+    "course-hero/price-width": "size/320",
+    "course-hero/mobile/radius": "radius/40",
+    "course-hero/mobile/padding-x": "space/12",
+    "course-hero/mobile/padding-top": "space/96",
+    "course-hero/mobile/padding-bottom": "space/12",
+    "course-hero/mobile/content-gap": "space/40",
+    "mentor-card/bg-color": "color/bg/surface",
+    "mentor-card/text-color": "color/text/primary",
+    "mentor-card/radius": "radius/80",
+    "mentor-card/padding-x": "space/48",
+    "mentor-card/padding-y": "space/48",
+    "mentor-card/gap": "space/24",
+    "mentor-card/content-gap": "space/12",
+    "mentor-card/mobile/radius": "radius/40",
+    "mentor-card/mobile/padding-x": "space/24",
+    "mentor-card/mobile/padding-y": "space/24",
+    "course-hero/actions-gap": "space/0"
   },
   "textStyles": {
     "heading/1": {
@@ -712,6 +743,12 @@
       "fontStyle": "typography/weight/medium",
       "fontFamily": "typography/family/golos-text",
       "lineHeight": "typography/line-height/30"
+    },
+    "heading/1-mobile": {
+      "fontSize": "typography/size/28",
+      "fontStyle": "typography/weight/regular",
+      "fontFamily": "typography/family/oi",
+      "lineHeight": "typography/line-height/34"
     }
   }
 }
