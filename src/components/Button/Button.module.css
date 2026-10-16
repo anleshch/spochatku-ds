@@ -57,6 +57,21 @@
   cursor: not-allowed;
 }
 
+/* Size=S: 40 px, body/s-medium, icons 20 */
+.small {
+  padding: var(--button-s-padding-y) var(--button-s-padding-x);
+}
+
+.small .icon :where(svg) {
+  width: 20px;
+  height: 20px;
+}
+
+/* as="span": the parent (e.g. a card link) owns hover/press/focus */
+.static {
+  pointer-events: none;
+}
+
 .iconOnly {
   padding: var(--button-padding-y);
 }

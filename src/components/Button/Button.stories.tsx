@@ -40,6 +40,11 @@ export const IconOnly: Story = {
   args: { children: undefined, icon: <ArrowRight />, 'aria-label': 'Далі' } as never,
 }
 
+export const Small: Story = {
+  name: 'Size S',
+  args: { size: 's', appearance: 'outlined', children: 'Ідея клубу', iconRight: <ArrowRight /> },
+}
+
 export const AsLink: Story = {
   name: 'As link (href)',
   args: { children: 'Більше про Анну', appearance: 'inverse', href: 'https://annalishchynska.com/', target: '_blank' },
@@ -61,7 +66,7 @@ const states = [
   { name: 'Disabled', id: 'disabled' },
 ] as const
 
-function Matrix({ iconOnly }: { iconOnly?: boolean }) {
+function Matrix({ iconOnly, size = 'm' }: { iconOnly?: boolean; size?: 'm' | 's' }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'auto repeat(5, auto)', gap: 24, alignItems: 'center', justifyItems: 'start' }}>
       <span />
@@ -72,11 +77,11 @@ function Matrix({ iconOnly }: { iconOnly?: boolean }) {
         <div key={appearance} style={{ display: 'contents' }}>
           <span className="text-body-s-medium">{appearance}</span>
           {states.map((s) => {
-            const props = { appearance, disabled: s.id === 'disabled', id: s.id && s.id !== 'disabled' ? `${appearance}-${s.id}` : undefined }
+            const props = { appearance, disabled: s.id === 'disabled', id: s.id && s.id !== 'disabled' ? `${size}-${appearance}-${s.id}` : undefined }
             return iconOnly ? (
               <Button key={s.name} {...props} icon={<ArrowRight />} aria-label="Далі" />
             ) : (
-              <Button key={s.name} {...props}>Button</Button>
+              <Button key={s.name} {...props} size={size}>Button</Button>
             )
           })}
         </div>
@@ -88,7 +93,7 @@ function Matrix({ iconOnly }: { iconOnly?: boolean }) {
 const pseudo = Object.fromEntries(
   (['hover', 'active', 'focus-visible'] as const).map((p) => [
     p === 'focus-visible' ? 'focusVisible' : p,
-    appearances.map((a) => `#${a}-${p}`),
+    (['m', 's'] as const).flatMap((size) => appearances.map((a) => `#${size}-${a}-${p}`)),
   ]),
 )
 
@@ -101,5 +106,11 @@ export const AllStates: Story = {
 export const AllStatesIconOnly: Story = {
   name: 'All states — IconOnly',
   render: () => <Matrix iconOnly />,
+  parameters: { pseudo },
+}
+
+export const AllStatesSmall: Story = {
+  name: 'All states — Size S',
+  render: () => <Matrix size="s" />,
   parameters: { pseudo },
 }
