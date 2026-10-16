@@ -40,8 +40,11 @@
     "typography/size/24": 24,
     "typography/size/20": 20,
     "typography/size/16": 16,
+    "radius/0": 0,
     "radius/12": 12,
     "radius/24": 24,
+    "radius/32": 32,
+    "radius/40": 40,
     "radius/48": 48,
     "radius/80": 80,
     "radius/160": 160,
@@ -76,7 +79,6 @@
     "border-width/2": 2,
     "border-width/0": 0,
     "color/transparent": "#ffffff00",
-    "radius/40": 40,
     "border-width/6": 6,
     "color/neutral/0-a70": "#ffffffb2",
     "border-width/1": 1,
@@ -86,12 +88,16 @@
     "size/740": 740,
     "size/200": 200,
     "color/neutral/0-a10": "#ffffff1a",
-    "radius/0": 0,
     "size/320": 320,
     "color/red/600": "#c8281e",
     "space/96": 96,
     "typography/size/28": 28,
-    "typography/line-height/34": 34
+    "typography/line-height/34": 34,
+    "typography/size/120": 120,
+    "typography/line-height/144": 144,
+    "size/160": 160,
+    "typography/size/14": 14,
+    "typography/line-height/17": 17
   },
   "Semantic": {
     "color/bg/page": {
@@ -214,9 +220,13 @@
       "pink-bg": "{space/80}",
       "beige-bg": "{space/80}"
     },
-    "layout/mobile/page-padding-x": {
+    "layout/mobile/page-padding-x-12": {
       "pink-bg": "{space/12}",
       "beige-bg": "{space/12}"
+    },
+    "layout/mobile/page-padding-x-40": {
+      "pink-bg": "{space/40}",
+      "beige-bg": "{space/40}"
     },
     "layout/section-gap": {
       "pink-bg": "{space/80}",
@@ -401,6 +411,7 @@
     ],
     "photo/border-width": "border-width/4",
     "photo/radius": "radius/40",
+    "photo/mob/radius": "radius/32",
     "photo/circle/radius": "radius/full",
     "person/gap": "space/8",
     "person/text-color": [
@@ -424,6 +435,7 @@
       "color/text/primary"
     ],
     "info-blocks/gap": "space/0",
+    "info-blocks/mob/gap": "space/8",
     "logo/icon-color": [
       "color/icon/primary",
       "color/icon/inverse",
@@ -563,6 +575,10 @@
     "program-card/padding-x": "space/48",
     "program-card/padding-y": "space/48",
     "program-card/gap": "space/24",
+    "program-card/mobile/radius": "radius/40",
+    "program-card/mobile/padding-x": "space/24",
+    "program-card/mobile/padding-y": "space/24",
+    "program-card/mobile/gap": "space/16",
     "footer/bg-color": "color/bg/inverse",
     "footer/text-color": [
       "color/text/primary",
@@ -641,7 +657,7 @@
     "faq-section/padding-x": "space/140",
     "faq-section/padding-y": "space/80",
     "faq-section/gap": "space/16",
-    "faq-section/mobile/radius": "radius/80",
+    "faq-section/mobile/radius": "radius/40",
     "faq-section/mobile/padding-x": "space/40",
     "faq-section/mobile/padding-y": "space/40",
     "nav-bar/mobile/radius": "radius/40",
@@ -665,7 +681,7 @@
     "podcast-card/mobile/radius": "radius/40",
     "podcast-card/mobile/padding-x": "space/24",
     "podcast-card/mobile/padding-y": "space/24",
-    "offer-card/mobile/radius": "radius/80",
+    "offer-card/mobile/radius": "radius/40",
     "offer-card/mobile/padding-x": "space/40",
     "offer-card/mobile/padding-y": "space/40",
     "offer-card/mobile/gap": "space/12",
@@ -702,10 +718,72 @@
     "mentor-card/mobile/padding-x": "space/24",
     "mentor-card/mobile/padding-y": "space/24",
     "course-hero/actions-gap": "space/0",
-    "program-card/mobile/radius": "radius/40",
-    "program-card/mobile/padding-x": "space/24",
-    "program-card/mobile/gap": "space/16",
-    "program-card/mobile/padding-y": "space/24"
+    "button/s/padding-x": "space/16",
+    "button/s/padding-y": "space/8",
+    "page-intro/text-color": "color/text/primary",
+    "page-intro/padding-top": "space/140",
+    "page-intro/padding-x": "space/120",
+    "page-intro/gap": "space/24",
+    "page-intro/actions-gap": "space/0",
+    "page-intro/mobile/padding-top": "space/120",
+    "page-intro/mobile/padding-x": "space/24",
+    "page-hero/bg-color": "color/bg/surface",
+    "page-hero/text-color": "color/text/primary",
+    "page-hero/radius": "radius/160",
+    "page-hero/padding-top": "space/140",
+    "page-hero/padding-x": "space/80",
+    "page-hero/padding-bottom": "space/80",
+    "page-hero/gap": "space/120",
+    "page-hero/titles-gap": "space/12",
+    "page-hero/people-gap": "space/24",
+    "page-hero/mobile/radius": "radius/40",
+    "page-hero/mobile/padding-top": "space/96",
+    "page-hero/mobile/padding-x": "space/12",
+    "page-hero/mobile/padding-bottom": "space/40",
+    "page-hero/mobile/gap": "space/24",
+    "page-hero/mobile/titles-gap": "space/24",
+    "page-hero/mobile/people-gap": "space/16",
+    "author-note/text-color": "color/text/primary",
+    "author-note/divider-color": "color/bg/surface",
+    "author-note/divider-width": "border-width/6",
+    "author-note/gap": "space/24",
+    "author-note/content-gap": "space/12",
+    "author-note/signature-gap": "space/4",
+    "text-card/bg-color": "color/bg/surface",
+    "text-card/text-color": "color/text/primary",
+    "text-card/radius": "radius/48",
+    "text-card/padding": "space/56",
+    "text-card/gap": "space/16",
+    "text-card/mobile/padding": "space/40",
+    "promo-card/bg-color": "color/bg/surface",
+    "promo-card/text-color": "color/text/primary",
+    "promo-card/border-color": "color/border/strong",
+    "promo-card/border-width": [
+      "border-width/0",
+      "border-width/0",
+      "border-width/4"
+    ],
+    "promo-card/radius": "radius/80",
+    "promo-card/padding": "space/48",
+    "promo-card/gap": "space/24",
+    "promo-card/text-gap": "space/12",
+    "promo-card/illustration-width": "size/320",
+    "promo-card/mobile/radius": "radius/40",
+    "promo-card/mobile/padding": "space/24",
+    "promo-card/mobile/illustration-height": "size/200",
+    "sticker/m/width": "size/160",
+    "sticker/m/padding-x": "space/12",
+    "sticker/m/padding-y": "space/16",
+    "sticker/m/radius": "radius/32",
+    "offer-card/border-color": "color/border/strong",
+    "offer-card/border-width": "border-width/0",
+    "offer-card/hover/border-width": "border-width/4",
+    "offer-card/pressed/border-width": "border-width/4",
+    "offer-card/pressed/bg-color": "color/bg/surface-pressed",
+    "offer-card/focus/ring-color": "color/border/focus",
+    "offer-card/focus/ring-offset-color": "color/bg/page",
+    "offer-card/focus/ring-offset": "border-width/2",
+    "offer-card/focus/ring-spread": "border-width/4"
   },
   "textStyles": {
     "heading/1": {
@@ -785,6 +863,18 @@
       "fontStyle": "typography/weight/regular",
       "fontFamily": "typography/family/oi",
       "lineHeight": "typography/line-height/34"
+    },
+    "display/1": {
+      "fontSize": "typography/size/120",
+      "fontStyle": "typography/weight/regular",
+      "fontFamily": "typography/family/oi",
+      "lineHeight": "typography/line-height/144"
+    },
+    "body/accent-s": {
+      "fontSize": "typography/size/14",
+      "fontStyle": "typography/weight/regular",
+      "fontFamily": "typography/family/oi",
+      "lineHeight": "typography/line-height/17"
     }
   }
 }
