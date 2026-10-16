@@ -235,8 +235,8 @@
       "beige-bg": "{space/24}"
     },
     "layout/card-gap": {
-      "pink-bg": "{space/8}",
-      "beige-bg": "{space/8}"
+      "pink-bg": "{space/0}",
+      "beige-bg": "{space/0}"
     },
     "layout/mobile/card-gap": {
       "pink-bg": "{space/0}",
