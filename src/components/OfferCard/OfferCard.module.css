@@ -1,9 +1,13 @@
 /*
  * OfferCard 102:950 (page `section`). Text styles change with Size, so fonts are set
  * from the same typography tokens the Figma text styles use.
+ * With href the whole card is a link: the inner Button and the corner arrow are visual only.
+ * Border is an INSIDE stroke not in layout → inset box-shadow; focus ring is added on top.
  */
 .card {
   --_text-color: var(--offer-card-text-color);
+  --_border-width: var(--offer-card-border-width);
+  --_ring: 0 0 transparent;
 
   position: relative;
   display: flex;
@@ -13,10 +17,55 @@
   border-radius: var(--offer-card-radius);
   background: var(--offer-card-bg-color);
   color: var(--offer-card-text-color);
+  box-shadow:
+    inset 0 0 0 var(--_border-width) var(--offer-card-border-color),
+    var(--_ring);
 }
 
 .unavailable {
   --_text-color: var(--offer-card-unavailable-text-color);
+}
+
+.link {
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    --_border-width: var(--offer-card-hover-border-width);
+  }
+}
+
+.link:active {
+  --_border-width: var(--offer-card-pressed-border-width);
+  background: var(--offer-card-pressed-bg-color);
+}
+
+.link:focus-visible {
+  --_ring:
+    0 0 0 var(--offer-card-focus-ring-offset) var(--offer-card-focus-ring-offset-color),
+    0 0 0 var(--offer-card-focus-ring-spread) var(--offer-card-focus-ring-color);
+}
+
+/* Arrow (Button IconOnly outlined) in the top-right corner, only in Hover / Pressed / Focus */
+.arrow {
+  position: absolute;
+  top: var(--offer-card-padding-y);
+  right: var(--offer-card-padding-x);
+  visibility: hidden;
+}
+
+.link:active .arrow,
+.link:focus-visible .arrow {
+  visibility: visible;
+}
+
+@media (hover: hover) {
+  .link:hover .arrow {
+    visibility: visible;
+  }
 }
 
 .content {
@@ -54,14 +103,27 @@
     var(--typography-family-golos-text);
 }
 
-.actions {
+/* Sticker M + Price (or the note) in one row */
+.footer {
   display: flex;
   align-items: center;
-  gap: var(--offer-card-actions-gap);
+  gap: var(--offer-card-gap);
 }
 
-.actions > :first-child {
+/* Rotation is set on the instance in Figma */
+.sticker {
+  flex-shrink: 0;
+  rotate: 5deg;
+}
+
+.price,
+.note {
   flex: 1;
+  min-width: 0;
+}
+
+.action {
+  width: 100%;
 }
 
 /* body/s-medium */
@@ -74,21 +136,32 @@
     var(--typography-family-golos-text);
 }
 
-.sticker {
-  position: absolute;
-  bottom: var(--space-40);
-  left: var(--space-40);
-}
-
 @media (max-width: 1023.98px) {
   .card {
-    gap: var(--offer-card-mobile-gap);
+    gap: var(--offer-card-mobile-content-gap);
     padding: var(--offer-card-mobile-padding-y) var(--offer-card-mobile-padding-x);
     border-radius: var(--offer-card-mobile-radius);
   }
 
+  .arrow {
+    top: var(--offer-card-mobile-padding-y);
+    right: var(--offer-card-mobile-padding-x);
+  }
+
   .content {
     gap: var(--offer-card-mobile-content-gap);
+  }
+
+  /* Mobile: sticker, then price/note, stacked */
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--offer-card-mobile-content-gap);
+  }
+
+  .sticker {
+    align-self: flex-start;
+    rotate: 2deg;
   }
 
   /* body/s-medium */

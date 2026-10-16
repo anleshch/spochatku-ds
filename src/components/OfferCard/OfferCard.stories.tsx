@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ArrowRight } from 'lucide-react'
-import { Button } from '../Button/Button'
 import { Price } from '../Price/Price'
 import { OfferCard } from './OfferCard'
 
@@ -8,19 +6,17 @@ const meta = {
   title: 'Organisms/OfferCard',
   component: OfferCard,
   args: {
+    href: '#',
     date: '27.10.26',
     format: 'Online',
     title: 'Design for Monetization',
     description: 'Майстерклас про те, як бізнес заробляє гроші і як зробити дизайн, що цьому допомагає.',
     price: <Price align="right" price="600$" secondaryPrice="26800 UAH" />,
-    action: <Button appearance="inverse">До консультацій</Button>,
-    iconAction: <Button appearance="outlined" icon={<ArrowRight />} aria-label="Детальніше" />,
+    actionLabel: 'Детальніше',
   },
   argTypes: {
     status: { control: 'inline-radio', options: ['available', 'unavailable'] },
     price: { control: false },
-    action: { control: false },
-    iconAction: { control: false },
   },
   decorators: [(Story) => <div style={{ width: '100%', maxWidth: 880 }}><Story /></div>],
   parameters: {
@@ -33,13 +29,57 @@ type Story = StoryObj<typeof meta>
 
 export const Available: Story = {}
 
+export const WithSticker: Story = { name: 'With sticker', args: { sticker: 'когорта — тільки 7 місць' } }
+
 export const Unavailable: Story = {
-  args: { status: 'unavailable', note: 'Ще не запустили, але скорше за все буде у 2026' },
+  args: {
+    status: 'unavailable',
+    description: undefined,
+    note: 'Ще не запустили, але скоріше за все буде у 2026',
+  },
 }
 
-export const WithSticker: Story = { name: 'With sticker', args: { sticker: 'когорта - 7 місць' } }
+export const UnavailableWithSticker: Story = {
+  name: 'Unavailable with sticker',
+  args: { ...Unavailable.args, sticker: 'старт навесні' },
+}
+
+export const LongText: Story = {
+  name: 'Long text (wraps)',
+  args: {
+    sticker: 'когорта — тільки 7 місць',
+    title: 'Design Leadership for Future Leaders: стратегія, команда, процеси і впровадження змін',
+    description:
+      'Дуже довгий опис майстеркласу, який переноситься на кілька рядків і показує, як картка поводиться з великим обсягом тексту без обрізання.',
+  },
+}
+
+const states = [
+  { name: 'Default', id: undefined },
+  { name: 'Hover', id: 'offer-hover' },
+  { name: 'Pressed', id: 'offer-active' },
+  { name: 'Focus', id: 'offer-focus' },
+] as const
+
+export const AllStates: Story = {
+  name: 'All states',
+  render: (args) => (
+    <div style={{ display: 'grid', gap: 40 }}>
+      {states.map((s) => (
+        <div key={s.name} style={{ display: 'grid', gap: 8 }}>
+          <span className="text-body-s-medium">{s.name}</span>
+          <OfferCard {...args} id={s.id} sticker="когорта — тільки 7 місць" />
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    pseudo: { hover: ['#offer-hover'], active: ['#offer-active'], focusVisible: ['#offer-focus'] },
+  },
+}
 
 export const Mobile: Story = {
   name: 'Mobile (< 1024 px)',
+  args: { sticker: 'когорта — тільки 7 місць' },
   globals: { viewport: { value: 'mobile2' } },
 }

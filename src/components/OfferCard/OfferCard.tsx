@@ -1,53 +1,61 @@
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '../Button/Button'
 import { Eyes } from '../Eyes/Eyes'
 import { Sticker } from '../Sticker/Sticker'
 import styles from './OfferCard.module.css'
 
 export type OfferCardStatus = 'available' | 'unavailable'
 
-export type OfferCardProps = Omit<HTMLAttributes<HTMLElement>, 'title'> & {
+export type OfferCardProps = Omit<AnchorHTMLAttributes<HTMLElement>, 'title'> & {
   title: ReactNode
-  /** available — ціна й кнопки; unavailable — приглушений текст, «очі» і примітка. */
+  /** available — ціна, кнопка і стани; unavailable — приглушений текст, «очі» і примітка. */
   status?: OfferCardStatus
+  /** available: уся картка — посилання `<a href>`. */
+  href?: string
   date?: ReactNode
   format?: ReactNode
   description?: ReactNode
-  /** available: Price align="right". */
+  /** available: Price align="right", поруч із наліпкою. */
   price?: ReactNode
-  /** available: Button appearance="inverse" на всю ширину. */
-  action?: ReactNode
-  /** available: IconOnly-кнопка поруч. */
-  iconAction?: ReactNode
+  /**
+   * available: текст кнопки на всю ширину (Figma `action`, Button inverse).
+   * Кнопка лише візуальна: клікабельна вся картка.
+   */
+  actionLabel?: ReactNode
   /** unavailable: пояснення поруч з «очима». */
   note?: ReactNode
-  /** Текст наліпки в нижньому лівому куті (Sticker L inverse, нахил 13°). */
+  /** Текст наліпки (Sticker M inverse з нахилом) зліва від ціни або примітки. */
   sticker?: ReactNode
 }
 
 /**
  * Картка пропозиції (майстерклас, курс, консультація).
- * ≥ 1024 px — Size=Desktop; < 1024 px — Size=Mobile (менші відступи й шрифти).
+ * ≥ 1024 px — Size=Desktop; < 1024 px — Size=Mobile.
+ * Стани Hover / Pressed / Focus (рамка, фон, стрілка в куті) — нативні :hover / :active / :focus-visible.
  */
 export function OfferCard({
   title,
   status = 'available',
+  href,
   date,
   format,
   description,
   price,
-  action,
-  iconAction,
+  actionLabel,
   note,
   sticker,
   className,
   ...rest
 }: OfferCardProps) {
   const unavailable = status === 'unavailable'
-  return (
-    <article
-      className={[styles.card, unavailable && styles.unavailable, className].filter(Boolean).join(' ')}
-      {...rest}
-    >
+  const isLink = !unavailable && href !== undefined
+  const classes = [styles.card, unavailable && styles.unavailable, isLink && styles.link, className]
+    .filter(Boolean)
+    .join(' ')
+
+  const body = (
+    <>
       <div className={styles.content}>
         {(date || format) && (
           <p className={styles.meta}>
@@ -58,29 +66,41 @@ export function OfferCard({
         <h3 className={styles.title}>{title}</h3>
         {description && <p className={styles.description}>{description}</p>}
       </div>
-      {unavailable ? (
-        note && (
-          <p className={styles.note}>
-            <Eyes />
-            <span>{note}</span>
-          </p>
-        )
-      ) : (
-        <>
-          {price && <div className={styles.price}>{price}</div>}
-          {action && (
-            <div className={styles.actions}>
-              {action}
-              {iconAction}
-            </div>
+      {(sticker || (unavailable ? note : price)) && (
+        <div className={styles.footer}>
+          {sticker && (
+            <Sticker size="m" appearance="inverse" className={styles.sticker}>
+              {sticker}
+            </Sticker>
           )}
-        </>
+          {unavailable
+            ? note && (
+                <p className={styles.note}>
+                  <Eyes />
+                  <span>{note}</span>
+                </p>
+              )
+            : price && <div className={styles.price}>{price}</div>}
+        </div>
       )}
-      {sticker && (
-        <Sticker size="l" appearance="inverse" rotate={13} className={styles.sticker}>
-          {sticker}
-        </Sticker>
+      {!unavailable && actionLabel && (
+        <Button as="span" appearance="inverse" className={styles.action}>
+          {actionLabel}
+        </Button>
       )}
+      {isLink && (
+        <Button as="span" appearance="outlined" icon={<ArrowRight />} aria-label="" className={styles.arrow} />
+      )}
+    </>
+  )
+
+  return isLink ? (
+    <a href={href} className={classes} {...rest}>
+      {body}
+    </a>
+  ) : (
+    <article className={classes} {...rest}>
+      {body}
     </article>
   )
 }
