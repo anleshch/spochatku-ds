@@ -1,0 +1,58 @@
+/* PageIntro 173:870 (page `section`). No background: sits on the page colour. */
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--page-intro-gap);
+  padding: var(--page-intro-padding-top) var(--page-intro-padding-x) 0;
+  color: var(--page-intro-text-color);
+  text-align: center;
+}
+
+.title,
+.description {
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* heading/1 */
+.title {
+  font: var(--typography-weight-regular) var(--typography-size-64) / var(--typography-line-height-77)
+    var(--typography-family-oi);
+}
+
+/* body/l */
+.description {
+  font: var(--typography-weight-medium) var(--typography-size-24) / var(--typography-line-height-29)
+    var(--typography-family-golos-text);
+}
+
+.action {
+  display: flex;
+  gap: var(--page-intro-actions-gap);
+}
+
+@media (max-width: 1023.98px) {
+  .intro {
+    align-items: stretch;
+    padding: var(--page-intro-mobile-padding-top) var(--page-intro-mobile-padding-x) 0;
+    text-align: left;
+  }
+
+  /* heading/2 */
+  .title {
+    font: var(--typography-weight-regular) var(--typography-size-40) / var(--typography-line-height-48)
+      var(--typography-family-oi);
+  }
+
+  /* body/m */
+  .description {
+    font: var(--typography-weight-regular) var(--typography-size-20) / var(--typography-line-height-24)
+      var(--typography-family-golos-text);
+  }
+
+  .action > * {
+    flex: 1;
+  }
+}

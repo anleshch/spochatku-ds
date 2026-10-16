@@ -1,0 +1,47 @@
+/* TextCard 173:837 (page `section`). Text styles change with Size → fonts from typography tokens. */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--text-card-gap);
+  padding: var(--text-card-padding);
+  border-radius: var(--text-card-radius);
+  background: var(--text-card-bg-color);
+  color: var(--text-card-text-color);
+}
+
+.title,
+.text {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* heading/2 */
+.title {
+  font: var(--typography-weight-regular) var(--typography-size-40) / var(--typography-line-height-48)
+    var(--typography-family-oi);
+}
+
+/* body/m */
+.text {
+  font: var(--typography-weight-regular) var(--typography-size-20) / var(--typography-line-height-24)
+    var(--typography-family-golos-text);
+  white-space: pre-line;
+}
+
+@media (max-width: 1023.98px) {
+  .card {
+    padding: var(--text-card-mobile-padding);
+  }
+
+  /* heading/1-mobile */
+  .title {
+    font: var(--typography-weight-regular) var(--typography-size-28) / var(--typography-line-height-34)
+      var(--typography-family-oi);
+  }
+
+  /* body/s */
+  .text {
+    font: var(--typography-weight-regular) var(--typography-size-16) / var(--typography-line-height-19)
+      var(--typography-family-golos-text);
+  }
+}

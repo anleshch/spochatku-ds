@@ -1,0 +1,76 @@
+/* PageHero 174:879 (page `section`). Only the bottom corners are rounded (top radius/0). */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--page-hero-gap);
+  padding: var(--page-hero-padding-top) var(--page-hero-padding-x) var(--page-hero-padding-bottom);
+  border-radius: 0 0 var(--page-hero-radius) var(--page-hero-radius);
+  background: var(--page-hero-bg-color);
+  color: var(--page-hero-text-color);
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--page-hero-titles-gap);
+  min-width: 0;
+}
+
+.title,
+.description {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* heading/1 */
+.title {
+  font: var(--typography-weight-regular) var(--typography-size-64) / var(--typography-line-height-77)
+    var(--typography-family-oi);
+}
+
+/* body/l */
+.description {
+  font: var(--typography-weight-medium) var(--typography-size-24) / var(--typography-line-height-29)
+    var(--typography-family-golos-text);
+}
+
+.people {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--page-hero-people-gap);
+}
+
+@media (max-width: 1023.98px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--page-hero-mobile-gap);
+    padding: var(--page-hero-mobile-padding-top) var(--page-hero-mobile-padding-x)
+      var(--page-hero-mobile-padding-bottom);
+    border-radius: 0 0 var(--page-hero-mobile-radius) var(--page-hero-mobile-radius);
+  }
+
+  .people {
+    order: -1;
+    gap: var(--page-hero-mobile-people-gap);
+  }
+
+  .titles {
+    align-self: stretch;
+    gap: var(--page-hero-mobile-titles-gap);
+    text-align: center;
+  }
+
+  /* heading/2 */
+  .title {
+    font: var(--typography-weight-regular) var(--typography-size-40) / var(--typography-line-height-48)
+      var(--typography-family-oi);
+  }
+
+  /* body/s */
+  .description {
+    font: var(--typography-weight-regular) var(--typography-size-16) / var(--typography-line-height-19)
+      var(--typography-family-golos-text);
+  }
+}
