@@ -16,8 +16,9 @@
   background: var(--header-bg-color);
   /* Stroke is part of layout in Figma (64 = 1 + 4 + 54 + 4 + 1) → real border. */
   border: var(--header-border-width) solid var(--header-border-color);
-  backdrop-filter: blur(var(--header-backdrop-blur));
+  /* Prefixed first: the lib minifier keeps only the last of the pair, and Chrome needs the standard one. */
   -webkit-backdrop-filter: blur(var(--header-backdrop-blur));
+  backdrop-filter: blur(var(--header-backdrop-blur));
 }
 
 .expanded {

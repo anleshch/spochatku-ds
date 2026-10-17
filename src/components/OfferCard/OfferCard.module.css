@@ -3,6 +3,7 @@
  * from the same typography tokens the Figma text styles use.
  * With href the whole card is a link: the inner Button and the corner arrow are visual only.
  * Border is an INSIDE stroke not in layout → inset box-shadow; focus ring is added on top.
+ * States change smoothly: Figma prototype Smart Animate ease-out 200 ms (not tokenized).
  */
 .card {
   --_text-color: var(--offer-card-text-color);
@@ -20,6 +21,9 @@
   box-shadow:
     inset 0 0 0 var(--_border-width) var(--offer-card-border-color),
     var(--_ring);
+  transition:
+    box-shadow 0.2s ease-out,
+    background-color 0.2s ease-out;
 }
 
 .unavailable {
@@ -54,17 +58,25 @@
   position: absolute;
   top: var(--offer-card-padding-y);
   right: var(--offer-card-padding-x);
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
 }
 
 .link:active .arrow,
 .link:focus-visible .arrow {
-  visibility: visible;
+  opacity: 1;
 }
 
 @media (hover: hover) {
   .link:hover .arrow {
-    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .arrow {
+    transition: none;
   }
 }
 
@@ -75,20 +87,19 @@
   color: var(--_text-color);
 }
 
-.meta,
+.tags,
 .title,
 .description,
 .note {
   margin: 0;
 }
 
-/* label/m-semibold */
-.meta {
+.tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--offer-card-meta-gap);
-  font: var(--typography-weight-semibold) var(--typography-size-20) / var(--typography-line-height-24)
-    var(--typography-family-golos-text);
+  gap: var(--offer-card-tags-gap);
+  padding: 0;
+  list-style: none;
 }
 
 /* heading/3 */
@@ -162,12 +173,6 @@
   .sticker {
     align-self: flex-start;
     rotate: 2deg;
-  }
-
-  /* body/s-medium */
-  .meta {
-    font: var(--typography-weight-medium) var(--typography-size-16) / var(--typography-line-height-24)
-      var(--typography-family-golos-text);
   }
 
   /* heading/4 */

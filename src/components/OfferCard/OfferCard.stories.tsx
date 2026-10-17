@@ -7,8 +7,7 @@ const meta = {
   component: OfferCard,
   args: {
     href: '#',
-    date: '27.10.26',
-    format: 'Online',
+    tags: ['27.10.26', 'Online'],
     title: 'Design for Monetization',
     description: 'Майстерклас про те, як бізнес заробляє гроші і як зробити дизайн, що цьому допомагає.',
     price: <Price align="right" price="600$" secondaryPrice="26800 UAH" />,

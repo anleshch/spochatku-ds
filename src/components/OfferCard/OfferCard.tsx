@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '../Button/Button'
 import { Eyes } from '../Eyes/Eyes'
 import { Sticker } from '../Sticker/Sticker'
+import { Tag } from '../Tag/Tag'
 import styles from './OfferCard.module.css'
 
 export type OfferCardStatus = 'available' | 'unavailable'
@@ -13,8 +14,8 @@ export type OfferCardProps = Omit<AnchorHTMLAttributes<HTMLElement>, 'title'> & 
   status?: OfferCardStatus
   /** available: уся картка — посилання `<a href>`. */
   href?: string
-  date?: ReactNode
-  format?: ReactNode
+  /** Короткі факти (дата, формат) — Tag outlined, на mobile — S (Figma tag-1, tag-2). */
+  tags?: ReactNode[]
   description?: ReactNode
   /** available: Price align="right", поруч із наліпкою. */
   price?: ReactNode
@@ -38,8 +39,7 @@ export function OfferCard({
   title,
   status = 'available',
   href,
-  date,
-  format,
+  tags,
   description,
   price,
   actionLabel,
@@ -57,11 +57,16 @@ export function OfferCard({
   const body = (
     <>
       <div className={styles.content}>
-        {(date || format) && (
-          <p className={styles.meta}>
-            {date && <span>{date}</span>}
-            {format && <span>{format}</span>}
-          </p>
+        {tags && tags.length > 0 && (
+          <ul className={styles.tags}>
+            {tags.map((tag, i) => (
+              <li key={i}>
+                <Tag appearance="outlined" size="responsive">
+                  {tag}
+                </Tag>
+              </li>
+            ))}
+          </ul>
         )}
         <h3 className={styles.title}>{title}</h3>
         {description && <p className={styles.description}>{description}</p>}

@@ -566,7 +566,7 @@
     "offer-card/padding-y": "space/80",
     "offer-card/gap": "space/40",
     "offer-card/content-gap": "space/24",
-    "offer-card/meta-gap": "space/16",
+    "offer-card/tags-gap": "space/4",
     "offer-card/note-gap": "space/8",
     "offer-card/actions-gap": "space/0",
     "program-card/bg-color": "color/bg/surface",

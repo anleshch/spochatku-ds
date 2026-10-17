@@ -22,8 +22,9 @@
   border: var(--nav-bar-border-width) solid var(--nav-bar-border-color);
   border-radius: var(--nav-bar-radius);
   background: var(--nav-bar-bg-color);
-  backdrop-filter: blur(var(--nav-bar-backdrop-blur));
+  /* Prefixed first: the lib minifier keeps only the last of the pair, and Chrome needs the standard one. */
   -webkit-backdrop-filter: blur(var(--nav-bar-backdrop-blur));
+  backdrop-filter: blur(var(--nav-bar-backdrop-blur));
 }
 
 .price {
