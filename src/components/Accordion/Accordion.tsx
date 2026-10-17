@@ -57,8 +57,18 @@ export function AccordionItem({
           <ChevronDown className={styles.icon} data-expanded={expanded} aria-hidden="true" />
         </button>
       </h3>
-      <div id={panelId} role="region" aria-labelledby={buttonId} hidden={!expanded} className={`${styles.content} text-body-s`}>
-        {content}
+      {/* Панель завжди в DOM, щоб висота змінювалась плавно; згорнута — inert (поза фокусом і скрінрідерами). */}
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        inert={!expanded}
+        data-expanded={expanded}
+        className={styles.panel}
+      >
+        <div className={styles.panelInner}>
+          <div className={`${styles.content} text-body-s`}>{content}</div>
+        </div>
       </div>
     </div>
   )

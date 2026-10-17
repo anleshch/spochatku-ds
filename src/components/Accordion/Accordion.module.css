@@ -2,6 +2,8 @@
  * AccordionItem 80:62, Accordion 80:71 (page `accordion`).
  * Bottom border is INSIDE and not part of layout → inset shadow; hover/pressed thicken it to 6
  * without moving content. States live on the trigger button and are reflected on the item via :has().
+ * Expand/collapse is animated like the Figma prototype (Smart Animate ease-out 300 ms, not tokenized):
+ * the panel's grid row goes 0fr → 1fr; the text gap lives inside the panel so a collapsed item has none.
  */
 .accordion {
   display: flex;
@@ -18,7 +20,6 @@
 
   display: flex;
   flex-direction: column;
-  gap: var(--accordion-item-text-gap);
   padding: var(--accordion-item-padding-y) var(--accordion-item-padding-x);
   background: var(--accordion-item-bg-color);
   color: var(--_text-color);
@@ -86,14 +87,41 @@
 }
 
 /* Figma swaps chevron-down → chevron-up; same glyph rotated. */
+.icon {
+  transition: rotate 0.3s ease-out;
+}
+
 .icon[data-expanded='true'] {
   rotate: 180deg;
 }
 
-.content {
-  margin: 0;
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s ease-out,
+    opacity 0.3s ease-out;
 }
 
-.content[hidden] {
-  display: none;
+.panel[data-expanded='true'] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.content {
+  margin: 0;
+  padding-top: var(--accordion-item-text-gap);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon,
+  .panel {
+    transition: none;
+  }
 }
