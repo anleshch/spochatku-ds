@@ -97,7 +97,8 @@
     "typography/line-height/144": 144,
     "size/160": 160,
     "typography/size/14": 14,
-    "typography/line-height/17": 17
+    "typography/line-height/17": 17,
+    "size/240": 240
   },
   "Semantic": {
     "color/bg/page": {
@@ -767,10 +768,11 @@
     "promo-card/padding": "space/48",
     "promo-card/gap": "space/24",
     "promo-card/text-gap": "space/12",
-    "promo-card/illustration-width": "size/320",
+    "promo-card/illustration-width": "size/200",
     "promo-card/mobile/radius": "radius/40",
     "promo-card/mobile/padding": "space/24",
     "promo-card/mobile/illustration-height": "size/200",
+    "promo-card/height": "size/240",
     "sticker/m/width": "size/160",
     "sticker/m/padding-x": "space/12",
     "sticker/m/padding-y": "space/16",

@@ -1,12 +1,16 @@
 /*
- * PromoCard 174:931 (page `section`). Border is an INSIDE stroke not in layout → inset
- * box-shadow drawn above the illustration (::after), so the image never covers it.
+ * PromoCard 174:931 (page `section`), illustration slot = PromoCardIllustration 215:2630.
+ * Border is an INSIDE stroke not in layout → inset box-shadow drawn above the illustration
+ * (::after), so the image never covers it. Desktop image FILL (cover), Mobile FIT (contain).
  */
 .card {
   position: relative;
   display: flex;
-  /* Figma Size=Desktop has a fixed height of 240 (not tokenized); min-height lets long text grow */
-  min-height: 240px;
+  /*
+   * Figma Size=Desktop: fixed height promo-card/height. Like in Figma, centered content that is
+   * taller than the padded box spreads into the padding instead of growing the card.
+   */
+  height: var(--promo-card-height);
   overflow: hidden;
   border-radius: var(--promo-card-radius);
   background: var(--promo-card-bg-color);
@@ -26,7 +30,7 @@
   position: relative;
   flex-shrink: 0;
   width: var(--promo-card-illustration-width);
-  background: var(--color-bg-subtle);
+  background: var(--promo-card-bg-color);
 }
 
 /* Fill the slot without letting the image's own size change the card height */
@@ -76,13 +80,17 @@
 @media (max-width: 1023.98px) {
   .card {
     flex-direction: column;
-    min-height: 0;
+    height: auto;
     border-radius: var(--promo-card-mobile-radius);
   }
 
   .illustration {
     width: auto;
     height: var(--promo-card-mobile-illustration-height);
+  }
+
+  .illustration img {
+    object-fit: contain;
   }
 
   .content {

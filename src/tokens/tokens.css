@@ -85,6 +85,7 @@
   --size-160: 160px;
   --typography-size-14: 14px;
   --typography-line-height-17: 17px;
+  --size-240: 240px;
 }
 
 /* Semantic — pink-bg (default) */
@@ -478,10 +479,11 @@
   --promo-card-padding: var(--space-48);
   --promo-card-gap: var(--space-24);
   --promo-card-text-gap: var(--space-12);
-  --promo-card-illustration-width: var(--size-320);
+  --promo-card-illustration-width: var(--size-200);
   --promo-card-mobile-radius: var(--radius-40);
   --promo-card-mobile-padding: var(--space-24);
   --promo-card-mobile-illustration-height: var(--size-200);
+  --promo-card-height: var(--size-240);
   --sticker-m-width: var(--size-160);
   --sticker-m-padding-x: var(--space-12);
   --sticker-m-padding-y: var(--space-16);

@@ -10,7 +10,7 @@ export type PromoCardProps = Omit<HTMLAttributes<HTMLElement>, 'title'> & {
   /** Figma `description` (`showDescription`). */
   description?: ReactNode
   appearance?: PromoCardAppearance
-  /** URL ілюстрації (Figma `illustration`, image fill). Без неї — порожнє тло `color/bg/subtle`. */
+  /** URL ілюстрації (Figma PromoCardIllustration, image fill): desktop — обрізається (cover), mobile — вписується (contain). */
   illustration?: string
   illustrationAlt?: string
   /** Button size="s" appearance="inverse". На mobile — на всю ширину. */
