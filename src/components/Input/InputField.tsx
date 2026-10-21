@@ -11,6 +11,7 @@ export type InputFieldProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
   error?: ReactNode
   /** id поля; за замовчуванням генерується. */
   htmlFor?: string
+  /** Обов'язкове поле: зірочка після лейбла і `required` у поля. */
   required?: boolean
   /** Input, Select або PhoneInput — отримують id, aria-describedby і помилку автоматично. */
   children: ReactNode
@@ -29,6 +30,7 @@ export function InputField({ label, hint, error, htmlFor, required, children, cl
       {label && (
         <label className={styles.label} htmlFor={id}>
           {label}
+          {required && <span aria-hidden="true">*</span>}
         </label>
       )}
       <FieldContext value={{ id, describedBy: messageId, invalid, required }}>{children}</FieldContext>
