@@ -4,8 +4,8 @@
  * With href the whole card is a link: the inner Button and the corner arrow are visual only.
  * Border is an INSIDE stroke not in layout → inset box-shadow; focus ring is added on top.
  * States change smoothly: Figma prototype Smart Animate ease-out 200 ms (not tokenized).
- * Price + action live in `bottom`, pushed down (space-between): cards stretched in a row
- * keep their buttons on one line. Size=Compact — 3-column grid on desktop only.
+ * Price + action live in `bottom`. Size=Compact (3-column grid, desktop only) pushes it down
+ * (space-between, min gap = compact gap): cards stretched in a row keep buttons on one line.
  */
 .card {
   --_text-color: var(--offer-card-text-color);
@@ -15,7 +15,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: var(--offer-card-gap);
   padding: var(--offer-card-padding-y) var(--offer-card-padding-x);
   border-radius: var(--offer-card-radius);
@@ -159,6 +158,7 @@
 
 @media (min-width: 1024px) {
   .compact {
+    justify-content: space-between;
     gap: var(--offer-card-compact-gap);
     padding: var(--offer-card-compact-padding-y) var(--offer-card-compact-padding-x);
     border-radius: var(--offer-card-compact-radius);
