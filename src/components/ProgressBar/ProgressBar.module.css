@@ -1,0 +1,20 @@
+/* ProgressBar (Figma page `progress-bar`). Height 8 is not tokenized in Figma. */
+.track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--progress-bar-radius);
+  background: var(--progress-bar-track-color);
+}
+
+.fill {
+  height: 100%;
+  border-radius: var(--progress-bar-radius);
+  background: var(--progress-bar-fill-color);
+  transition: width 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

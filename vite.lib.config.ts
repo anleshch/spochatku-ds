@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 // Library build for the Spochatku site: `npm run build:lib` → dist/index.js + dist/styles.css.
-// React, React DOM and lucide-react come from the site, so they are not bundled.
+// React, React DOM, lucide-react and libphonenumber-js come from the site, so they are not bundled.
 export default defineConfig({
   plugins: [react()],
   publicDir: false,
@@ -18,7 +18,7 @@ export default defineConfig({
       cssFileName: 'styles',
     },
     rolldownOptions: {
-      external: [/^react($|\/)/, /^react-dom($|\/)/, /^lucide-react($|\/)/],
+      external: [/^react($|\/)/, /^react-dom($|\/)/, /^lucide-react($|\/)/, /^libphonenumber-js($|\/)/],
     },
   },
 })

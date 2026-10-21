@@ -86,6 +86,9 @@
   --typography-size-14: 14px;
   --typography-line-height-17: 17px;
   --size-240: 240px;
+  --radius-16: 16px;
+  --radius-6: 6px;
+  --color-red-700: #a81f17;
 }
 
 /* Semantic — pink-bg (default) */
@@ -128,6 +131,8 @@
   --layout-mobile-block-gap: var(--space-24);
   --layout-card-gap: var(--space-0);
   --layout-mobile-card-gap: var(--space-0);
+  --color-text-error: var(--color-red-700);
+  --color-border-error: var(--color-red-600);
 }
 
 /* Semantic — beige-bg */
@@ -170,6 +175,8 @@
   --layout-mobile-block-gap: var(--space-24);
   --layout-card-gap: var(--space-0);
   --layout-mobile-card-gap: var(--space-0);
+  --color-text-error: var(--color-red-700);
+  --color-border-error: var(--color-red-600);
 }
 
 /* Components — default */
@@ -502,6 +509,47 @@
   --offer-card-compact-gap: var(--space-80);
   --offer-card-compact-radius: var(--radius-80);
   --offer-card-bottom-gap: var(--space-24);
+  --input-bg-color: var(--color-bg-surface);
+  --input-hover-bg-color: var(--color-bg-surface-hover);
+  --input-disabled-bg-color: var(--color-bg-disabled);
+  --input-text-color: var(--color-text-primary);
+  --input-placeholder-color: var(--color-text-secondary);
+  --input-disabled-text-color: var(--color-text-disabled);
+  --input-caret-color: var(--color-text-primary);
+  --input-border-color: var(--color-border-strong);
+  --input-error-border-color: var(--color-border-error);
+  --input-border-width: var(--border-width-2);
+  --input-focus-border-width: var(--border-width-4);
+  --input-disabled-border-width: var(--border-width-0);
+  --input-radius: var(--radius-16);
+  --input-padding-x: var(--space-16);
+  --input-padding-y: var(--space-12);
+  --input-gap: var(--space-8);
+  --input-icon-color: var(--color-icon-primary);
+  --input-disabled-icon-color: var(--color-text-disabled);
+  --input-field-gap: var(--space-8);
+  --input-field-label-text-color: var(--color-text-primary);
+  --input-field-hint-text-color: var(--color-text-secondary);
+  --input-field-error-hint-text-color: var(--color-text-error);
+  --input-prefix-gap: var(--space-4);
+  --checkbox-bg-color: var(--color-bg-surface);
+  --checkbox-hover-bg-color: var(--color-bg-surface-hover);
+  --checkbox-checked-bg-color: var(--color-bg-inverse);
+  --checkbox-disabled-bg-color: var(--color-bg-disabled);
+  --checkbox-border-color: var(--color-border-strong);
+  --checkbox-error-border-color: var(--color-border-error);
+  --checkbox-border-width: var(--border-width-2);
+  --checkbox-focus-border-width: var(--border-width-4);
+  --checkbox-disabled-border-width: var(--border-width-0);
+  --checkbox-radius: var(--radius-6);
+  --checkbox-gap: var(--space-12);
+  --checkbox-icon-color: var(--color-icon-inverse);
+  --checkbox-disabled-icon-color: var(--color-text-disabled);
+  --checkbox-text-color: var(--color-text-primary);
+  --checkbox-disabled-text-color: var(--color-text-disabled);
+  --progress-bar-track-color: var(--color-bg-surface);
+  --progress-bar-fill-color: var(--color-bg-inverse);
+  --progress-bar-radius: var(--radius-full);
 }
 
 /* Components — inverse */

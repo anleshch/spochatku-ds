@@ -1,0 +1,173 @@
+/*
+ * Input 242:78, Select 244:2958, PhoneInput 244:2868 (Figma pages `input`, `select`).
+ * `.box` is the visible field; the native control inside is borderless and transparent.
+ * Border is an INSIDE stroke not in layout → inset box-shadow, so Focus (4px) keeps the size.
+ * Height 54 = padding-y 12 + label/m line-height 30, same as Button M.
+ */
+.box {
+  --_border-width: var(--input-border-width);
+  --_border-color: var(--input-border-color);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--input-gap);
+  min-width: 0;
+  padding: var(--input-padding-y) var(--input-padding-x);
+  border-radius: var(--input-radius);
+  background: var(--input-bg-color);
+  color: var(--input-text-color);
+  box-shadow: inset 0 0 0 var(--_border-width) var(--_border-color);
+  transition:
+    box-shadow 0.2s ease-out,
+    background-color 0.2s ease-out;
+}
+
+@media (hover: hover) {
+  .box:hover:not(:has(:disabled)) {
+    background: var(--input-hover-bg-color);
+  }
+}
+
+.box:has(:focus-visible),
+.box:has(.control:focus) {
+  --_border-width: var(--input-focus-border-width);
+  background: var(--input-bg-color);
+}
+
+.invalid {
+  --_border-color: var(--input-error-border-color);
+}
+
+.box:has(.control:disabled) {
+  --_border-width: var(--input-disabled-border-width);
+  background: var(--input-disabled-bg-color);
+  color: var(--input-disabled-text-color);
+}
+
+/* label/m */
+.control {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: var(--typography-weight-medium) var(--typography-size-20) / var(--typography-line-height-30)
+    var(--typography-family-golos-text);
+  text-overflow: ellipsis;
+  caret-color: var(--input-caret-color);
+  outline: none;
+  appearance: none;
+}
+
+.control::placeholder {
+  color: var(--input-placeholder-color);
+  opacity: 1;
+}
+
+.control:disabled {
+  cursor: not-allowed;
+}
+
+.control:disabled::placeholder {
+  color: var(--input-disabled-text-color);
+}
+
+.icon,
+.prefix {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: var(--input-icon-color);
+}
+
+.box:has(.control:disabled) :is(.icon, .prefix) {
+  color: var(--input-disabled-icon-color);
+}
+
+/* Lucide icons are 24 px, as in Figma */
+.icon :where(svg) {
+  width: 24px;
+  height: 24px;
+}
+
+/* Prefix: text (label/m) + chevron, Figma `prefix` */
+.prefix {
+  position: relative;
+  gap: var(--input-prefix-gap);
+  color: var(--input-text-color);
+  font: var(--typography-weight-medium) var(--typography-size-20) / var(--typography-line-height-30)
+    var(--typography-family-golos-text);
+}
+
+.prefix :where(svg) {
+  width: 24px;
+  height: 24px;
+  color: var(--input-icon-color);
+}
+
+/* Select: native <select> styled as Input, chevron on the right (Figma iconRight=chevron-down) */
+.select {
+  padding-right: calc(24px + var(--input-gap));
+  cursor: pointer;
+}
+
+.select:has(option[value='']:checked) {
+  color: var(--input-placeholder-color);
+}
+
+.selectIcon {
+  position: absolute;
+  right: var(--input-padding-x);
+  pointer-events: none;
+}
+
+/* PhoneInput: the country <select> covers the prefix, invisible, so the native picker opens */
+.countrySelect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.prefix:has(.countrySelect:focus-visible) {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* InputField */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-field-gap);
+  min-width: 0;
+}
+
+/* body/s-medium */
+.label {
+  color: var(--input-field-label-text-color);
+  font: var(--typography-weight-medium) var(--typography-size-16) / var(--typography-line-height-24)
+    var(--typography-family-golos-text);
+}
+
+/* body/s */
+.hint {
+  margin: 0;
+  color: var(--input-field-hint-text-color);
+  font: var(--typography-weight-regular) var(--typography-size-16) / var(--typography-line-height-19)
+    var(--typography-family-golos-text);
+}
+
+.error {
+  color: var(--input-field-error-hint-text-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box {
+    transition: none;
+  }
+}

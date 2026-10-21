@@ -98,7 +98,10 @@
     "size/160": 160,
     "typography/size/14": 14,
     "typography/line-height/17": 17,
-    "size/240": 240
+    "size/240": 240,
+    "radius/16": 16,
+    "radius/6": 6,
+    "color/red/700": "#a81f17"
   },
   "Semantic": {
     "color/bg/page": {
@@ -252,6 +255,14 @@
     "layout/mobile/card-gap": {
       "pink-bg": "{space/0}",
       "beige-bg": "{space/0}"
+    },
+    "color/text/error": {
+      "pink-bg": "{color/red/700}",
+      "beige-bg": "{color/red/700}"
+    },
+    "color/border/error": {
+      "pink-bg": "{color/red/600}",
+      "beige-bg": "{color/red/600}"
     }
   },
   "Components": {
@@ -790,7 +801,48 @@
     "offer-card/compact/padding-y": "space/40",
     "offer-card/compact/gap": "space/80",
     "offer-card/compact/radius": "radius/80",
-    "offer-card/bottom-gap": "space/24"
+    "offer-card/bottom-gap": "space/24",
+    "input/bg-color": "color/bg/surface",
+    "input/hover/bg-color": "color/bg/surface-hover",
+    "input/disabled/bg-color": "color/bg/disabled",
+    "input/text-color": "color/text/primary",
+    "input/placeholder-color": "color/text/secondary",
+    "input/disabled/text-color": "color/text/disabled",
+    "input/caret-color": "color/text/primary",
+    "input/border-color": "color/border/strong",
+    "input/error/border-color": "color/border/error",
+    "input/border-width": "border-width/2",
+    "input/focus/border-width": "border-width/4",
+    "input/disabled/border-width": "border-width/0",
+    "input/radius": "radius/16",
+    "input/padding-x": "space/16",
+    "input/padding-y": "space/12",
+    "input/gap": "space/8",
+    "input/icon-color": "color/icon/primary",
+    "input/disabled/icon-color": "color/text/disabled",
+    "input-field/gap": "space/8",
+    "input-field/label-text-color": "color/text/primary",
+    "input-field/hint-text-color": "color/text/secondary",
+    "input-field/error/hint-text-color": "color/text/error",
+    "input/prefix-gap": "space/4",
+    "checkbox/bg-color": "color/bg/surface",
+    "checkbox/hover/bg-color": "color/bg/surface-hover",
+    "checkbox/checked/bg-color": "color/bg/inverse",
+    "checkbox/disabled/bg-color": "color/bg/disabled",
+    "checkbox/border-color": "color/border/strong",
+    "checkbox/error/border-color": "color/border/error",
+    "checkbox/border-width": "border-width/2",
+    "checkbox/focus/border-width": "border-width/4",
+    "checkbox/disabled/border-width": "border-width/0",
+    "checkbox/radius": "radius/6",
+    "checkbox/gap": "space/12",
+    "checkbox/icon-color": "color/icon/inverse",
+    "checkbox/disabled/icon-color": "color/text/disabled",
+    "checkbox/text-color": "color/text/primary",
+    "checkbox/disabled/text-color": "color/text/disabled",
+    "progress-bar/track-color": "color/bg/surface",
+    "progress-bar/fill-color": "color/bg/inverse",
+    "progress-bar/radius": "radius/full"
   },
   "textStyles": {
     "heading/1": {
