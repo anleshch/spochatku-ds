@@ -20,6 +20,8 @@ export type PhoneValue = {
 
 export type PhoneInputProps = Omit<InputProps, 'type' | 'value' | 'defaultValue' | 'onChange' | 'prefix' | 'name'> & {
   defaultCountry?: CountryCode
+  /** Початковий номер (E.164, напр. +380501234567) — щоб відновити введене після повернення до кроку. */
+  defaultValue?: string
   /** Ім'я прихованого поля з номером у форматі E.164 (для звичайної відправки форми). */
   name?: string
   onValueChange?: (value: PhoneValue) => void
@@ -41,14 +43,16 @@ function countryOptions(first: CountryCode) {
  */
 export function PhoneInput({
   defaultCountry = 'UA',
+  defaultValue,
   name,
   onValueChange,
   countryLabel = 'Країна',
   disabled,
   ...rest
 }: PhoneInputProps) {
-  const [country, setCountry] = useState<CountryCode>(defaultCountry)
-  const [text, setText] = useState('')
+  const initial = defaultValue ? parsePhoneNumberFromString(defaultValue, defaultCountry) : undefined
+  const [country, setCountry] = useState<CountryCode>(initial?.country ?? defaultCountry)
+  const [text, setText] = useState(initial ? initial.formatNational() : '')
   const options = useMemo(() => countryOptions(defaultCountry), [defaultCountry])
   const parsed = text ? parsePhoneNumberFromString(text, country) : undefined
 
