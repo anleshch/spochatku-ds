@@ -785,7 +785,12 @@
     "offer-card/focus/ring-color": "color/border/focus",
     "offer-card/focus/ring-offset-color": "color/bg/page",
     "offer-card/focus/ring-offset": "border-width/2",
-    "offer-card/focus/ring-spread": "border-width/4"
+    "offer-card/focus/ring-spread": "border-width/4",
+    "offer-card/compact/padding-x": "space/40",
+    "offer-card/compact/padding-y": "space/40",
+    "offer-card/compact/gap": "space/80",
+    "offer-card/compact/radius": "radius/80",
+    "offer-card/bottom-gap": "space/24"
   },
   "textStyles": {
     "heading/1": {

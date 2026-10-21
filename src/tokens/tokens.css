@@ -497,6 +497,11 @@
   --offer-card-focus-ring-offset-color: var(--color-bg-page);
   --offer-card-focus-ring-offset: var(--border-width-2);
   --offer-card-focus-ring-spread: var(--border-width-4);
+  --offer-card-compact-padding-x: var(--space-40);
+  --offer-card-compact-padding-y: var(--space-40);
+  --offer-card-compact-gap: var(--space-80);
+  --offer-card-compact-radius: var(--radius-80);
+  --offer-card-bottom-gap: var(--space-24);
 }
 
 /* Components — inverse */

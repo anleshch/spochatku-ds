@@ -4,6 +4,8 @@
  * With href the whole card is a link: the inner Button and the corner arrow are visual only.
  * Border is an INSIDE stroke not in layout → inset box-shadow; focus ring is added on top.
  * States change smoothly: Figma prototype Smart Animate ease-out 200 ms (not tokenized).
+ * Price + action live in `bottom`, pushed down (space-between): cards stretched in a row
+ * keep their buttons on one line. Size=Compact — 3-column grid on desktop only.
  */
 .card {
   --_text-color: var(--offer-card-text-color);
@@ -13,6 +15,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: var(--offer-card-gap);
   padding: var(--offer-card-padding-y) var(--offer-card-padding-x);
   border-radius: var(--offer-card-radius);
@@ -114,6 +117,13 @@
     var(--typography-family-golos-text);
 }
 
+/* Footer + action */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--offer-card-gap);
+}
+
 /* Sticker M + Price (or the note) in one row */
 .footer {
   display: flex;
@@ -147,6 +157,23 @@
     var(--typography-family-golos-text);
 }
 
+@media (min-width: 1024px) {
+  .compact {
+    gap: var(--offer-card-compact-gap);
+    padding: var(--offer-card-compact-padding-y) var(--offer-card-compact-padding-x);
+    border-radius: var(--offer-card-compact-radius);
+  }
+
+  .compact .arrow {
+    top: var(--offer-card-compact-padding-y);
+    right: var(--offer-card-compact-padding-x);
+  }
+
+  .compact .bottom {
+    gap: var(--offer-card-bottom-gap);
+  }
+}
+
 @media (max-width: 1023.98px) {
   .card {
     gap: var(--offer-card-mobile-content-gap);
@@ -160,6 +187,10 @@
   }
 
   .content {
+    gap: var(--offer-card-mobile-content-gap);
+  }
+
+  .bottom {
     gap: var(--offer-card-mobile-content-gap);
   }
 

@@ -15,9 +15,17 @@ const meta = {
   },
   argTypes: {
     status: { control: 'inline-radio', options: ['available', 'unavailable'] },
+    size: { control: 'inline-radio', options: ['default', 'compact'] },
+    actionAppearance: { control: 'inline-radio', options: ['inverse', 'outlined'] },
     price: { control: false },
   },
-  decorators: [(Story) => <div style={{ width: '100%', maxWidth: 880 }}><Story /></div>],
+  decorators: [
+    (Story, { parameters }) => (
+      <div style={{ width: '100%', maxWidth: parameters.maxWidth ?? 880 }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     design: { type: 'figma', url: 'https://www.figma.com/design/Svu5osTmwoz7tbm0Jw0q1u/?node-id=102-950' },
   },
@@ -81,4 +89,49 @@ export const Mobile: Story = {
   name: 'Mobile (< 1024 px)',
   args: { sticker: 'когорта — тільки 7 місць' },
   globals: { viewport: { value: 'mobile2' } },
+}
+
+export const OutlinedAction: Story = {
+  name: 'Outlined action (not clickable)',
+  args: { href: undefined, actionAppearance: 'outlined', actionLabel: 'Запис після знайомства' },
+}
+
+/** Size=Compact: 3 колонки на desktop, картки однієї висоти, ціна й кнопка на одному рівні. */
+export const Compact: Story = {
+  name: 'Compact (3 columns)',
+  render: () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+      <OfferCard
+        size="compact"
+        href="#"
+        tags={['15-30хв']}
+        title="Знайомство"
+        description="На цій зустрічі ми розбираємо ваш запит, я даю перший напрямок думок і визначаємо чи зможу я бути для вас корисною."
+        price={<Price align="right" price="Free" />}
+        actionLabel="Записатись"
+      />
+      <OfferCard
+        size="compact"
+        tags={['80хв', 'Дизайнеру']}
+        title="Сесія для дизайнера"
+        description="Консультація або менторство з фокусом на запит."
+        price={<Price align="right" price="80€" />}
+        actionLabel="Запис після знайомства"
+        actionAppearance="outlined"
+      />
+      <OfferCard
+        size="compact"
+        tags={['5 по 80хв', 'Бізнесу']}
+        title="Місяць консультацій для бізнеса"
+        description="Заходжу у команду як Advisor та працюємо фокусно над вашим запитом."
+        price={<Price align="right" price="1000€" />}
+        actionLabel="Запис після знайомства"
+        actionAppearance="outlined"
+      />
+    </div>
+  ),
+  parameters: {
+    maxWidth: 1280,
+    design: { type: 'figma', url: 'https://www.figma.com/design/Svu5osTmwoz7tbm0Jw0q1u/?node-id=229-2815' },
+  },
 }

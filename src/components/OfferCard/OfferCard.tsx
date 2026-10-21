@@ -7,11 +7,17 @@ import { Tag } from '../Tag/Tag'
 import styles from './OfferCard.module.css'
 
 export type OfferCardStatus = 'available' | 'unavailable'
+export type OfferCardSize = 'default' | 'compact'
 
 export type OfferCardProps = Omit<AnchorHTMLAttributes<HTMLElement>, 'title'> & {
   title: ReactNode
   /** available — ціна, кнопка і стани; unavailable — приглушений текст, «очі» і примітка. */
   status?: OfferCardStatus
+  /**
+   * default — Figma Size=Desktop / Mobile (за шириною екрана);
+   * compact — Size=Compact для сітки в 3 колонки на desktop (на mobile — як default).
+   */
+  size?: OfferCardSize
   /** available: уся картка — посилання `<a href>`. */
   href?: string
   /** Короткі факти (дата, формат) — Tag outlined, на mobile — S (Figma tag-1, tag-2). */
@@ -24,6 +30,8 @@ export type OfferCardProps = Omit<AnchorHTMLAttributes<HTMLElement>, 'title'> & 
    * Кнопка лише візуальна: клікабельна вся картка.
    */
   actionLabel?: ReactNode
+  /** Вигляд кнопки (Figma exposed instance `action`): outlined — запис ще недоступний. */
+  actionAppearance?: 'inverse' | 'outlined'
   /** unavailable: пояснення поруч з «очима». */
   note?: ReactNode
   /** Текст наліпки (Sticker M inverse з нахилом) зліва від ціни або примітки. */
@@ -38,11 +46,13 @@ export type OfferCardProps = Omit<AnchorHTMLAttributes<HTMLElement>, 'title'> & 
 export function OfferCard({
   title,
   status = 'available',
+  size = 'default',
   href,
   tags,
   description,
   price,
   actionLabel,
+  actionAppearance = 'inverse',
   note,
   sticker,
   className,
@@ -50,7 +60,15 @@ export function OfferCard({
 }: OfferCardProps) {
   const unavailable = status === 'unavailable'
   const isLink = !unavailable && href !== undefined
-  const classes = [styles.card, unavailable && styles.unavailable, isLink && styles.link, className]
+  const hasFooter = Boolean(sticker || (unavailable ? note : price))
+  const hasAction = !unavailable && Boolean(actionLabel)
+  const classes = [
+    styles.card,
+    size === 'compact' && styles.compact,
+    unavailable && styles.unavailable,
+    isLink && styles.link,
+    className,
+  ]
     .filter(Boolean)
     .join(' ')
 
@@ -71,27 +89,31 @@ export function OfferCard({
         <h3 className={styles.title}>{title}</h3>
         {description && <p className={styles.description}>{description}</p>}
       </div>
-      {(sticker || (unavailable ? note : price)) && (
-        <div className={styles.footer}>
-          {sticker && (
-            <Sticker size="m" appearance="inverse" className={styles.sticker}>
-              {sticker}
-            </Sticker>
+      {(hasFooter || hasAction) && (
+        <div className={styles.bottom}>
+          {hasFooter && (
+            <div className={styles.footer}>
+              {sticker && (
+                <Sticker size="m" appearance="inverse" className={styles.sticker}>
+                  {sticker}
+                </Sticker>
+              )}
+              {unavailable
+                ? note && (
+                    <p className={styles.note}>
+                      <Eyes />
+                      <span>{note}</span>
+                    </p>
+                  )
+                : price && <div className={styles.price}>{price}</div>}
+            </div>
           )}
-          {unavailable
-            ? note && (
-                <p className={styles.note}>
-                  <Eyes />
-                  <span>{note}</span>
-                </p>
-              )
-            : price && <div className={styles.price}>{price}</div>}
+          {hasAction && (
+            <Button as="span" appearance={actionAppearance} className={styles.action}>
+              {actionLabel}
+            </Button>
+          )}
         </div>
-      )}
-      {!unavailable && actionLabel && (
-        <Button as="span" appearance="inverse" className={styles.action}>
-          {actionLabel}
-        </Button>
       )}
       {isLink && (
         <Button as="span" appearance="outlined" icon={<ArrowRight />} aria-label="" className={styles.arrow} />
