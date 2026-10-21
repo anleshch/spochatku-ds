@@ -31,6 +31,16 @@ export type PhoneInputProps = Omit<InputProps, 'type' | 'value' | 'defaultValue'
 
 const regionNames = typeof Intl !== 'undefined' && 'DisplayNames' in Intl ? new Intl.DisplayNames(['uk'], { type: 'region' }) : null
 
+/** Номер без коду країни в міжнародному форматі: «50 123 4567», без національного префікса 0. */
+function formatNational(digits: string, country: CountryCode) {
+  const national = new AsYouType(country)
+  national.input(digits)
+  const code = getCountryCallingCode(country)
+  // getNumberValue() — E.164 і для неповного номера, вже без національного префікса 0
+  const nsn = national.getNumberValue()?.slice(code.length + 1) ?? digits
+  return new AsYouType().input(`+${code}${nsn}`).replace(`+${code}`, '').trim()
+}
+
 function countryOptions(first: CountryCode) {
   const list = getCountries().map((c) => ({ code: c, name: regionNames?.of(c) ?? c }))
   list.sort((a, b) => (a.code === first ? -1 : b.code === first ? 1 : a.name.localeCompare(b.name, 'uk')))
@@ -52,7 +62,7 @@ export function PhoneInput({
 }: PhoneInputProps) {
   const initial = defaultValue ? parsePhoneNumberFromString(defaultValue, defaultCountry) : undefined
   const [country, setCountry] = useState<CountryCode>(initial?.country ?? defaultCountry)
-  const [text, setText] = useState(initial ? initial.formatNational() : '')
+  const [text, setText] = useState(initial ? formatNational(initial.nationalNumber, initial.country ?? defaultCountry) : '')
   const options = useMemo(() => countryOptions(defaultCountry), [defaultCountry])
   const parsed = text ? parsePhoneNumberFromString(text, country) : undefined
 
@@ -65,10 +75,13 @@ export function PhoneInput({
     const raw = e.target.value
     // Видалення: не переформатовуємо, щоб курсор не стрибав через пробіли
     const deleting = raw.length < text.length
-    const formatter = new AsYouType(country)
-    const next = deleting ? raw : formatter.input(raw)
-    const detected = raw.startsWith('+') ? formatter.getCountry() : undefined
+    // Вставили номер з «+»: визначаємо країну з коду
+    const intl = raw.trim().startsWith('+') ? new AsYouType() : undefined
+    intl?.input(raw)
+    const detected = intl?.getCountry()
     const nextCountry = detected ?? country
+    const digits = detected ? (intl?.getNumber()?.nationalNumber ?? '') : raw.replace(/\D/g, '')
+    const next = deleting ? raw : formatNational(digits, nextCountry)
     setText(next)
     if (detected) setCountry(detected)
     emit(next, nextCountry)
