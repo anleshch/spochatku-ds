@@ -13,7 +13,7 @@ const meta = {
       'Майстерклас про те, як бізнес заробляє гроші і як зробити дизайн, що цьому допомагає. Тут — про юніт-економіку та типи монетизації, поведінкову економіку, нейробіологію та сегменти.',
     tags: ['27.10.26', '1 місяць', 'Online'],
     sticker: 'тільки 7 місць',
-    price: <Price align="responsive" price="600$" secondaryPrice="26800 UAH" />,
+    price: <Price align="responsive" price="600€" secondaryPrice="26800 UAH" />,
     action: (
       <Button appearance="inverse" href="#register">
         Зареєструватись
@@ -40,11 +40,24 @@ export const EarlyBird: Story = {
       <Price
         align="responsive"
         state="early-bird"
-        price="600$"
-        discountedPrice="510$"
+        price="600€"
+        discountedPrice="510€"
         secondaryPrice="21700 UAH"
         note="−15% для Early bird – до 01.09 включно"
       />
+    ),
+  },
+}
+
+/** Figma State=Waitlist: набір закрито — без тегу з датою, з тегом когорти. */
+export const Waitlist: Story = {
+  args: {
+    tags: ['1 місяць', 'Online', 'Когорта 03'],
+    price: <Price align="responsive" price="500€" secondaryPrice="25400 UAH" />,
+    action: (
+      <Button appearance="inverse" href="#register">
+        Запис у Waitlist
+      </Button>
     ),
   },
 }

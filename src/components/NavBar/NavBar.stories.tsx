@@ -9,7 +9,7 @@ const meta = {
   component: NavBar,
   args: {
     sticker: 'когорта - 7 місць',
-    price: <Price price="600$" secondaryPrice="26800 UAH" />,
+    price: <Price price="600€" secondaryPrice="26800 UAH" />,
     action: <Button appearance="inverse">Зареєструватись</Button>,
     iconAction: <Button appearance="outlined" icon={<ArrowRight />} aria-label="Детальніше" />,
   },
@@ -40,7 +40,7 @@ export const Mobile: Story = {
 export const EarlyBird: Story = {
   name: 'With early-bird price',
   args: {
-    price: <Price state="early-bird" price="600$" discountedPrice="510$" secondaryPrice="23000 UAH" note="−15% для Early bird – до 01.09 включно" />,
+    price: <Price state="early-bird" price="600€" discountedPrice="510€" secondaryPrice="23000 UAH" note="−15% для Early bird – до 01.09 включно" />,
   },
   decorators: [(Story) => <div style={{ width: 838 }}><Story /></div>],
 }

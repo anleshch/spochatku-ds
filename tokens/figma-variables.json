@@ -710,7 +710,7 @@
     "course-hero/padding-bottom": "space/80",
     "course-hero/gap": "space/24",
     "course-hero/tags-gap": "space/4",
-    "course-hero/description-gap": "space/12",
+    "course-hero/description-gap": "space/24",
     "course-hero/content-gap": "space/120",
     "course-hero/price-gap": "space/24",
     "course-hero/price-width": "size/320",

@@ -8,14 +8,14 @@ export type PriceAlign = 'center' | 'right' | 'responsive'
 export type PriceState = 'default' | 'early-bird' | 'unavailable'
 
 export type PriceProps = HTMLAttributes<HTMLDivElement> & {
-  /** Основна ціна, наприклад «600$». В early-bird показується закресленою. */
+  /** Основна ціна, наприклад «600€». В early-bird показується закресленою. */
   price?: ReactNode
   /** Друга ціна під основною (зазвичай у гривнях). Не передали — рядка немає. */
   secondaryPrice?: ReactNode
   /** Center — у NavBar; Right — в OfferCard; responsive — Right ≥ 1024 px, Center нижче (CourseHero). */
   align?: PriceAlign
   state?: PriceState
-  /** early-bird: ціна зі знижкою, наприклад «510$». */
+  /** early-bird: ціна зі знижкою, наприклад «510€». */
   discountedPrice?: ReactNode
   /** early-bird: умова знижки (із зірочкою); unavailable: пояснення під очима. */
   note?: ReactNode
